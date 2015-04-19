@@ -29,6 +29,8 @@
 
 @property UIView *currentiPhone;
 
+@property UIView *leftiPhone;
+@property UIView *rightiPhone;
 @end
 
 #pragma mark - SKScene unarchive
@@ -63,7 +65,6 @@
     [self initExtras];
     
     
-    
     UILabel *welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, self.view.frame.size.width,70)];
     welcomeLabel.text = @"Welcome";
     welcomeLabel.textAlignment = NSTextAlignmentCenter;
@@ -78,13 +79,11 @@
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     [self.view addSubview:view];
+    [self.view addSubview:view];
     iPhoneViewController *blueiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"BlueiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"Deck"]];
     blueiPhone.delegate =self;
     blueiPhone.mainVC = self;
     
-    
-    //    ViewController *vc = [[ViewController alloc]init];
-    //    EducationInfoViewController *educationInfoVC = [[EducationInfoViewController alloc]init];
     
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Skills" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Education" ViewController:nil andSplashImage:nil];
@@ -99,7 +98,12 @@
     self.currentiPhone = view;
     
     view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
+    view.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
+    self.leftiPhone = view;
+//    [self animateToLeftView:view];
     [self.view addSubview:view];
+    
+    
     iPhoneViewController*pinkiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"PinkiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"FancyRocks"]];
     pinkiPhone.delegate = self;
     pinkiPhone.mainVC = self;
@@ -118,7 +122,12 @@
     [self.iPhoneVCS addObject:pinkiPhone];
     
     view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
+//    view = [[UIView alloc]initWithFrame:CGRectMake(15, 15, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     [self.view addSubview:view];
+    self.rightiPhone = view;
+    view.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
+//    [self animateToRightView:view];
+    
     iPhoneViewController*greeniPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"GreeniPhone5c"] withView:view andBackground:[UIImage imageNamed:@"Lighthouse"]];
     greeniPhone.delegate = self;
     greeniPhone.mainVC = self;
@@ -145,12 +154,16 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self animateUpToiPhone:self.currentiPhone];
+    [self  animateToRightView:self.rightiPhone];
+    [self  animateToLeftView:self.leftiPhone];
+    [self.view bringSubviewToFront:self.currentiPhone];
+    
 }
 
 -(void)initExtras{
     self.iPhones = [[NSMutableArray alloc]init];
     self.iPhoneVCS = [[NSMutableArray alloc]init];
-    self.swipeAnimationTime = 0.3;
+    self.swipeAnimationTime = 0.6;
 }
 
 
@@ -174,62 +187,65 @@
     }
     
     
-    //    CABasicAnimation *transformAnimation = [CABasicAnimation animationWithKeyPath: @"transform"];
-    //    CATransform3D shrinkAndLeft = CATransform3DIdentity;
-    //
-    //    shrinkAndLeft = CATransform3DTranslate(shrinkAndLeft, 50, 50,0);
-    //
-    //    transformAnimation.toValue = [NSValue valueWithCATransform3D:shrinkAndLeft];
-    //    transformAnimation.duration = 10;
-    //    [self.currentiPhone.layer addAnimation:transformAnimation forKey:@"transform"];
-    //        self.currentiPhone.layer.transform = shrinkAndLeft;
-    
-    //    [self animateLeftToiPhone:self.currentiPhone];
-    
-    return;
-    
     if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
-        if (self.index == 0) {
-            self.index = (int)[self.iPhones count] -1;
-        }else{
-            self.index --;
-        }
-        NSLog(@"Swiped Left");
+        UIView *temp;
+        temp = self.leftiPhone;
+        self.leftiPhone = self.currentiPhone;
+        self.currentiPhone = self.rightiPhone;
+        self.rightiPhone = temp;
     }else if(gesture.direction ==UISwipeGestureRecognizerDirectionRight){
-        NSLog(@"Swiped Right");
-        if (self.index == [self.iPhones count]-1) {
-            self.index = 0;
-        }else{
-            self.index ++;
-        }
+        UIView *temp;
+        temp = self.leftiPhone;
+        self.leftiPhone = self.rightiPhone;
+        self.rightiPhone = self.currentiPhone;
+        self.currentiPhone =temp;
     }
     
-    UIView *destinationiPhone = [self.iPhones objectAtIndex:self.index];
-    
-    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
-        [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            self.currentiPhone.center = CGPointMake(self.screenSize.width * -0.5, self.screenSize.height  );
-        } completion:^(BOOL finished) {
-            
-        }];
-        [self animateLeftToiPhone:destinationiPhone];
-    }else if (gesture.direction == UISwipeGestureRecognizerDirectionRight){
-        [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            self.currentiPhone.center = CGPointMake(self.screenSize.width * 1.5, self.screenSize.height );
-        } completion:^(BOOL finished) {
-            
-        }];
-        [self animateRightToiPhone:destinationiPhone];
-    }
-    
-    //    [self switchiPhoneFrom:self.currentiPhone to:destinationiPhone];
+    [self animateToLeftView:self.leftiPhone];
+    [self animateToRightView:self.rightiPhone];
+    [self animateToCenterView:self.currentiPhone];
+
 }
 
 -(void)animateToLeftView:(UIView *)view{
-    CATransform3D transformLeft = CATransform3DIdentity;
-    transformLeft = CATransform3DScale(transformLeft, .5, .5, .5);
-    [UIView animateWithDuration:4 animations:^{
-        view.layer.transform = transformLeft;
+    view.userInteractionEnabled = NO;
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform,-self.screenSize.width/2, -250);
+    transform = CGAffineTransformScale(transform,0.5, 0.5);
+    
+    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        view.transform = transform;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+}
+
+-(void)animateToRightView:(UIView *)view{
+    view.userInteractionEnabled = NO;
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform,self.screenSize.width/2, -250);
+    transform = CGAffineTransformScale(transform,0.5, 0.5);
+
+    
+    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        view.transform = transform;
+                [self.view layoutIfNeeded];
+    } completion:nil];
+
+}
+-(void)animateToCenterView:(UIView *)view{
+    view.userInteractionEnabled = NO;
+    [self.view bringSubviewToFront:view];
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform,0,0);
+    transform = CGAffineTransformScale(transform,1, 1);
+    
+    
+    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        view.transform = transform;
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.switchingiPhoneAnimation = NO;
+        view.userInteractionEnabled = YES;
     }];
 }
 
@@ -340,7 +356,6 @@
     }
     if ([clickedIcon.name isEqualToString:@"Contact"]) {
         Contact *c = [[Contact alloc]init];
-        [c method];
         vc = c;
 //        c.mainVC = self;
 //        vc.mainVC = self;

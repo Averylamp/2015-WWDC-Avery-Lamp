@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8118368B-A6AA-484D-8C45-E0517B2E5481</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C2C6459C4B2B676ACA593346666C2BDF1679CD2A</key>
+		<string>https://github.com/Averylamp/Resume.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Avery Lamp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C2C6459C4B2B676ACA593346666C2BDF1679CD2A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Averylamp/Resume.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C2C6459C4B2B676ACA593346666C2BDF1679CD2A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C2C6459C4B2B676ACA593346666C2BDF1679CD2A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Avery%20Lamp</string>
+		</dict>
+	</array>
+</dict>
+</plist>

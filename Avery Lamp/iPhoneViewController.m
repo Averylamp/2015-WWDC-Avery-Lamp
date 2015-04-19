@@ -131,7 +131,7 @@
 
 -(void)addIconWithImage:(UIImage *)image Name:(NSString *)name ViewController:(UIViewController *)vc andSplashImage:(UIImage*)splashImage{
     
-    IconButton *icon = [[IconButton alloc]initWithViewController:vc andIconImage:image andSplashScree:splashImage];
+    IconButton *icon = [[IconButton alloc]initWithViewController:nil andIconImage:image andSplashScree:splashImage];
     [icon addTarget:self action:@selector(iconClicked:) forControlEvents:UIControlEventTouchUpInside];
     icon.frame = CGRectMake(0, 0, self.screenView.frame.size.width*4 /16, self.screenView.frame.size.width*4 /16);
     icon.imageView.layer.cornerRadius = 0.15625 * icon.frame.size.width;
