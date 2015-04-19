@@ -9,11 +9,24 @@
 /* Begin PBXBuildFile section */
 		BB57F4E11AE3489F00437B84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E01AE3489F00437B84 /* main.m */; };
 		BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E31AE3489F00437B84 /* AppDelegate.m */; };
-		BB57F4E71AE3489F00437B84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E61AE3489F00437B84 /* ViewController.m */; };
 		BB57F4EA1AE3489F00437B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB57F4E81AE3489F00437B84 /* Main.storyboard */; };
 		BB57F4EC1AE3489F00437B84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB57F4EB1AE3489F00437B84 /* Images.xcassets */; };
 		BB57F4EF1AE3489F00437B84 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB57F4ED1AE3489F00437B84 /* LaunchScreen.xib */; };
 		BB57F4FB1AE3489F00437B84 /* Avery_LampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4FA1AE3489F00437B84 /* Avery_LampTests.m */; };
+		BB57F5111AE348BE00437B84 /* EducationInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F5051AE348BE00437B84 /* EducationInfoViewController.m */; };
+		BB57F5121AE348BE00437B84 /* IconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F5071AE348BE00437B84 /* IconButton.m */; };
+		BB57F5131AE348BE00437B84 /* iPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F5091AE348BE00437B84 /* iPhoneViewController.m */; };
+		BB57F5141AE348BE00437B84 /* LaunchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F50B1AE348BE00437B84 /* LaunchingViewController.m */; };
+		BB57F5151AE348BE00437B84 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F50D1AE348BE00437B84 /* MainViewController.m */; };
+		BB57F5161AE348BE00437B84 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB57F50E1AE348BE00437B84 /* MyScene.sks */; };
+		BB57F5171AE348BE00437B84 /* SkillsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F5101AE348BE00437B84 /* SkillsScene.m */; };
+		BB57F51B1AE348EA00437B84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F51A1AE348EA00437B84 /* ViewController.m */; };
+		BB57F5201AE3492B00437B84 /* PRTween.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F51D1AE3492B00437B84 /* PRTween.m */; };
+		BB57F5211AE3492B00437B84 /* PRTweenTimingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F51F1AE3492B00437B84 /* PRTweenTimingFunctions.m */; };
+		BB57F5241AE3493E00437B84 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB57F5231AE3493E00437B84 /* SpriteKit.framework */; };
+		BB57F5261AE3494400437B84 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB57F5251AE3494400437B84 /* UIKit.framework */; };
+		BB57F5281AE3499800437B84 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB57F5271AE3499800437B84 /* QuartzCore.framework */; };
+		BB57F52B1AE34B3100437B84 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB57F52A1AE34B3100437B84 /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +45,36 @@
 		BB57F4E01AE3489F00437B84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB57F4E21AE3489F00437B84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB57F4E31AE3489F00437B84 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BB57F4E51AE3489F00437B84 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BB57F4E61AE3489F00437B84 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BB57F4E91AE3489F00437B84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB57F4EB1AE3489F00437B84 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BB57F4EE1AE3489F00437B84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BB57F4F41AE3489F00437B84 /* Avery LampTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Avery LampTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB57F4F91AE3489F00437B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB57F4FA1AE3489F00437B84 /* Avery_LampTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Avery_LampTests.m; sourceTree = "<group>"; };
+		BB57F5041AE348BE00437B84 /* EducationInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationInfoViewController.h; sourceTree = "<group>"; };
+		BB57F5051AE348BE00437B84 /* EducationInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationInfoViewController.m; sourceTree = "<group>"; };
+		BB57F5061AE348BE00437B84 /* IconButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconButton.h; sourceTree = "<group>"; };
+		BB57F5071AE348BE00437B84 /* IconButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconButton.m; sourceTree = "<group>"; };
+		BB57F5081AE348BE00437B84 /* iPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhoneViewController.h; sourceTree = "<group>"; };
+		BB57F5091AE348BE00437B84 /* iPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhoneViewController.m; sourceTree = "<group>"; };
+		BB57F50A1AE348BE00437B84 /* LaunchingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchingViewController.h; sourceTree = "<group>"; };
+		BB57F50B1AE348BE00437B84 /* LaunchingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchingViewController.m; sourceTree = "<group>"; };
+		BB57F50C1AE348BE00437B84 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		BB57F50D1AE348BE00437B84 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		BB57F50E1AE348BE00437B84 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
+		BB57F50F1AE348BE00437B84 /* SkillsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillsScene.h; sourceTree = "<group>"; };
+		BB57F5101AE348BE00437B84 /* SkillsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillsScene.m; sourceTree = "<group>"; };
+		BB57F5191AE348EA00437B84 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BB57F51A1AE348EA00437B84 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BB57F51C1AE3492B00437B84 /* PRTween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTween.h; sourceTree = "<group>"; };
+		BB57F51D1AE3492B00437B84 /* PRTween.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRTween.m; sourceTree = "<group>"; };
+		BB57F51E1AE3492B00437B84 /* PRTweenTimingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTweenTimingFunctions.h; sourceTree = "<group>"; };
+		BB57F51F1AE3492B00437B84 /* PRTweenTimingFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRTweenTimingFunctions.m; sourceTree = "<group>"; };
+		BB57F5231AE3493E00437B84 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		BB57F5251AE3494400437B84 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BB57F5271AE3499800437B84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avery Lamp-Bridging-Header.h"; sourceTree = "<group>"; };
+		BB57F52A1AE34B3100437B84 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB57F5281AE3499800437B84 /* QuartzCore.framework in Frameworks */,
+				BB57F5261AE3494400437B84 /* UIKit.framework in Frameworks */,
+				BB57F5241AE3493E00437B84 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +101,9 @@
 		BB57F4D21AE3489F00437B84 = {
 			isa = PBXGroup;
 			children = (
+				BB57F5271AE3499800437B84 /* QuartzCore.framework */,
+				BB57F5251AE3494400437B84 /* UIKit.framework */,
+				BB57F5231AE3493E00437B84 /* SpriteKit.framework */,
 				BB57F4DD1AE3489F00437B84 /* Avery Lamp */,
 				BB57F4F71AE3489F00437B84 /* Avery LampTests */,
 				BB57F4DC1AE3489F00437B84 /* Products */,
@@ -83,8 +124,14 @@
 			children = (
 				BB57F4E21AE3489F00437B84 /* AppDelegate.h */,
 				BB57F4E31AE3489F00437B84 /* AppDelegate.m */,
-				BB57F4E51AE3489F00437B84 /* ViewController.h */,
-				BB57F4E61AE3489F00437B84 /* ViewController.m */,
+				BB57F5221AE3493000437B84 /* PRTween */,
+				BB57F5181AE348C400437B84 /* Icon VCS */,
+				BB57F5061AE348BE00437B84 /* IconButton.h */,
+				BB57F5071AE348BE00437B84 /* IconButton.m */,
+				BB57F5081AE348BE00437B84 /* iPhoneViewController.h */,
+				BB57F5091AE348BE00437B84 /* iPhoneViewController.m */,
+				BB57F50C1AE348BE00437B84 /* MainViewController.h */,
+				BB57F50D1AE348BE00437B84 /* MainViewController.m */,
 				BB57F4E81AE3489F00437B84 /* Main.storyboard */,
 				BB57F4EB1AE3489F00437B84 /* Images.xcassets */,
 				BB57F4ED1AE3489F00437B84 /* LaunchScreen.xib */,
@@ -117,6 +164,35 @@
 				BB57F4F91AE3489F00437B84 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB57F5181AE348C400437B84 /* Icon VCS */ = {
+			isa = PBXGroup;
+			children = (
+				BB57F5191AE348EA00437B84 /* ViewController.h */,
+				BB57F51A1AE348EA00437B84 /* ViewController.m */,
+				BB57F50A1AE348BE00437B84 /* LaunchingViewController.h */,
+				BB57F50B1AE348BE00437B84 /* LaunchingViewController.m */,
+				BB57F5041AE348BE00437B84 /* EducationInfoViewController.h */,
+				BB57F5051AE348BE00437B84 /* EducationInfoViewController.m */,
+				BB57F50E1AE348BE00437B84 /* MyScene.sks */,
+				BB57F50F1AE348BE00437B84 /* SkillsScene.h */,
+				BB57F5101AE348BE00437B84 /* SkillsScene.m */,
+				BB57F52A1AE34B3100437B84 /* Contact.swift */,
+				BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */,
+			);
+			name = "Icon VCS";
+			sourceTree = "<group>";
+		};
+		BB57F5221AE3493000437B84 /* PRTween */ = {
+			isa = PBXGroup;
+			children = (
+				BB57F51C1AE3492B00437B84 /* PRTween.h */,
+				BB57F51D1AE3492B00437B84 /* PRTween.m */,
+				BB57F51E1AE3492B00437B84 /* PRTweenTimingFunctions.h */,
+				BB57F51F1AE3492B00437B84 /* PRTweenTimingFunctions.m */,
+			);
+			name = PRTween;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +277,7 @@
 			files = (
 				BB57F4EA1AE3489F00437B84 /* Main.storyboard in Resources */,
 				BB57F4EF1AE3489F00437B84 /* LaunchScreen.xib in Resources */,
+				BB57F5161AE348BE00437B84 /* MyScene.sks in Resources */,
 				BB57F4EC1AE3489F00437B84 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB57F4E71AE3489F00437B84 /* ViewController.m in Sources */,
+				BB57F52B1AE34B3100437B84 /* Contact.swift in Sources */,
+				BB57F51B1AE348EA00437B84 /* ViewController.m in Sources */,
+				BB57F5171AE348BE00437B84 /* SkillsScene.m in Sources */,
 				BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */,
+				BB57F5211AE3492B00437B84 /* PRTweenTimingFunctions.m in Sources */,
 				BB57F4E11AE3489F00437B84 /* main.m in Sources */,
+				BB57F5151AE348BE00437B84 /* MainViewController.m in Sources */,
+				BB57F5201AE3492B00437B84 /* PRTween.m in Sources */,
+				BB57F5131AE348BE00437B84 /* iPhoneViewController.m in Sources */,
+				BB57F5141AE348BE00437B84 /* LaunchingViewController.m in Sources */,
+				BB57F5121AE348BE00437B84 /* IconButton.m in Sources */,
+				BB57F5111AE348BE00437B84 /* EducationInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,9 +433,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Avery Lamp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Avery Lamp/Avery Lamp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -357,9 +449,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Avery Lamp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Avery Lamp/Avery Lamp-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
