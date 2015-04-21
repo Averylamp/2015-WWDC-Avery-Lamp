@@ -62,7 +62,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self addiPhonesAndAllViews];
+    [self animateUpToiPhone:self.currentiPhone];
+    [self  animateToRightView:self.rightiPhone];
+    [self  animateToLeftView:self.leftiPhone];
+    [self.view bringSubviewToFront:self.currentiPhone];
+    
+}
+
+-(void)initExtras{
+    self.iPhones = [[NSMutableArray alloc]init];
+    self.iPhoneVCS = [[NSMutableArray alloc]init];
+    self.swipeAnimationTime = 0.6;
+}
+
+-(void)addiPhonesAndAllViews{
     [self initExtras];
+    [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.view.gestureRecognizers = [[NSArray alloc]init];
     
     
     UILabel *welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, self.view.frame.size.width,70)];
@@ -100,7 +124,7 @@
     view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     view.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
     self.leftiPhone = view;
-//    [self animateToLeftView:view];
+    //    [self animateToLeftView:view];
     [self.view addSubview:view];
     
     
@@ -109,7 +133,7 @@
     pinkiPhone.mainVC = self;
     
     
-    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Snappr" ViewController: nil
+    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Education" ViewController: nil
                   andSplashImage:[UIImage imageNamed:@"SnapprSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"ViewZik" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SmithIcon"] Name:@"Smith" ViewController:nil andSplashImage:[UIImage imageNamed:@"SmithSplashScreen"]];
@@ -122,17 +146,17 @@
     [self.iPhoneVCS addObject:pinkiPhone];
     
     view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
-//    view = [[UIView alloc]initWithFrame:CGRectMake(15, 15, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
+    //    view = [[UIView alloc]initWithFrame:CGRectMake(15, 15, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     [self.view addSubview:view];
     self.rightiPhone = view;
     view.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
-//    [self animateToRightView:view];
+    //    [self animateToRightView:view];
     
     iPhoneViewController*greeniPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"GreeniPhone5c"] withView:view andBackground:[UIImage imageNamed:@"Lighthouse"]];
     greeniPhone.delegate = self;
     greeniPhone.mainVC = self;
     
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Education" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Photography" ViewController:nil andSplashImage:nil];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Music" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Coding" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
@@ -148,23 +172,11 @@
     iPhoneSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:iPhoneSwipe];
     
-}
-
-
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self animateUpToiPhone:self.currentiPhone];
-    [self  animateToRightView:self.rightiPhone];
-    [self  animateToLeftView:self.leftiPhone];
-    [self.view bringSubviewToFront:self.currentiPhone];
+    
     
 }
 
--(void)initExtras{
-    self.iPhones = [[NSMutableArray alloc]init];
-    self.iPhoneVCS = [[NSMutableArray alloc]init];
-    self.swipeAnimationTime = 0.6;
-}
+
 
 
 
@@ -268,12 +280,14 @@
 
 -(void)animateUpToiPhone:(UIView *)iPhone{
     iPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height * 2.0);
-    
+    iPhone.transform = CGAffineTransformIdentity;
     [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         iPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
     } completion:^(BOOL finished) {
         self.currentiPhone = iPhone;
+        iPhone.transform = CGAffineTransformIdentity;
         self.switchingiPhoneAnimation = NO;
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -334,14 +348,6 @@
 }
 
 -(void)openIconVC{
-    
-    animatingView =nil;
-    
-    //    self.currentiPhoneVC.animatingResize =  NO;
-    self.currentiPhone.frame = CGRectMake(15, self.screenSize.height, self.screenSize.width -30, (self.screenSize.width - 30) *532.0 /254.0);
-    self.currentiPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height * 2);
-    self.currentiPhoneVC.splashScreen.hidden = YES;
-    //[self.currentiPhoneVC setupView];
     [self openIconVCWithIconButton:self.currentiPhoneVC.clickedIcon];
 }
 
@@ -357,8 +363,6 @@
     if ([clickedIcon.name isEqualToString:@"Contact"]) {
         Contact *c = [[Contact alloc]init];
         vc = c;
-//        c.mainVC = self;
-//        vc.mainVC = self;
     }
     
     if ([clickedIcon.name isEqualToString:@"Skills"]) {
@@ -381,11 +385,12 @@
         }
     }
     
-    vc.modalPresentationStyle = UIModalTransitionStyleCrossDissolve;
+    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     [self presentViewController:vc animated:YES completion:^{
         self.currentiPhoneVC.iconClicked= NO;
         self.currentiPhoneVC.swipeLocked = NO;
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     }];
 }
 
