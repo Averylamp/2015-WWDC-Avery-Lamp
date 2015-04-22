@@ -220,28 +220,39 @@
 }
 
 -(void)animateToLeftView:(UIView *)view{
-    view.userInteractionEnabled = NO;
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    transform = CGAffineTransformTranslate(transform,-self.screenSize.width/2, -250);
-    transform = CGAffineTransformScale(transform,0.5, 0.5);
+
+    CGRect frame = CGRectMake(-65, self.screenSize.height/2-130, 130, 130*532.0 /254.0);
+    [self rectLerpTapped:view withFrame:frame duration:1];
     
-    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        view.transform = transform;
-        [self.view layoutIfNeeded];
-    } completion:nil];
+    
+    
+//    view.userInteractionEnabled = NO;
+//    CGAffineTransform transform = CGAffineTransformIdentity;
+//    transform = CGAffineTransformTranslate(transform,-self.screenSize.width/2, -250);
+//    transform = CGAffineTransformScale(transform,0.5, 0.5);
+//    
+//    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//        view.transform = transform;
+//        [self.view layoutIfNeeded];
+//    } completion:nil];
 }
 
 -(void)animateToRightView:(UIView *)view{
-    view.userInteractionEnabled = NO;
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    transform = CGAffineTransformTranslate(transform,self.screenSize.width/2, -250);
-    transform = CGAffineTransformScale(transform,0.5, 0.5);
 
+    CGRect frame = CGRectMake(self.screenSize.width-65, self.screenSize.height/2-130, 130, 130*532.0 /254.0);
+    [self rectLerpTapped:view withFrame:frame duration:1];
     
-    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        view.transform = transform;
-                [self.view layoutIfNeeded];
-    } completion:nil];
+    
+    //    view.userInteractionEnabled = NO;
+//    CGAffineTransform transform = CGAffineTransformIdentity;
+//    transform = CGAffineTransformTranslate(transform,self.screenSize.width/2, -250);
+//    transform = CGAffineTransformScale(transform,0.5, 0.5);
+//
+//    
+//    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//        view.transform = transform;
+//                [self.view layoutIfNeeded];
+//    } completion:nil];
 
 }
 -(void)animateToCenterView:(UIView *)view{
@@ -326,9 +337,9 @@
     }
 }
 
--(void)rectLerpTapped:(UIView*)view withFrame:(CGRect)frame{
+-(void)rectLerpTapped:(UIView*)view withFrame:(CGRect)frame duration:(int)duration{
     animatingView = view;
-    activeTweenOperation = [PRTweenCGRectLerp lerp:animatingView property:@"frame" from:view.frame to:frame duration:1 timingFunction:&PRTweenTimingFunctionExpoOut  target:self completeSelector:@selector(openIconVC)];
+    activeTweenOperation = [PRTweenCGRectLerp lerp:animatingView property:@"frame" from:view.frame to:frame duration:duration timingFunction:&PRTweenTimingFunctionExpoOut  target:self completeSelector:@selector(openIconVC)];
 }
 #pragma mark - Clicking on Icons
 
@@ -343,7 +354,7 @@
     }
     
     self.currentiPhoneVC = iPhoneVC;
-    [self rectLerpTapped:iPhoneView withFrame:CGRectMake(-0.08278990644 *iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), -0.1503759398 * iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height )), iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height )))];
+    [self rectLerpTapped:iPhoneView withFrame:CGRectMake(-0.08278990644 *iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), -0.1503759398 * iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height )), iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height ))) duration:1];
     
 }
 
@@ -382,16 +393,17 @@
             sceneVC.scene = scene;
             sceneVC.view = skView;
             
+            
         }
     }
     
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    [self presentViewController:vc animated:YES completion:^{
-        self.currentiPhoneVC.iconClicked= NO;
-        self.currentiPhoneVC.swipeLocked = NO;
-        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    }];
+//    [self presentViewController:vc animated:YES completion:^{
+//        self.currentiPhoneVC.iconClicked= NO;
+//        self.currentiPhoneVC.swipeLocked = NO;
+//        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+//    }];
 }
 
 #pragma mark - Memory Management

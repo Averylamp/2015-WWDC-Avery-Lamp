@@ -108,9 +108,7 @@
 }
 
 -(void)setupView{
-    if (self.animatingResize) {
-        return;
-    }
+    NSLog(@"iPhoneSize %f , %f",self.view.frame.size.width,self.view.frame.size.height);
     self.iPhoneImage.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.screenView.frame= CGRectMake(0.08278990644 *self.iPhoneImage.frame.size.width , 0.1503759398 * self.iPhoneImage.frame.size.height,self.iPhoneImage.frame.size.width -(2*self.iPhoneImage.frame.size.width *0.08278990644 ),self.iPhoneImage.frame.size.height - (( 0.1503759398+0.1409774436)* self.iPhoneImage.frame.size.height));
     self.backgroundImage.frame = CGRectMake(0, 0, self.screenView.frame.size.width, self.screenView.frame.size.height);
@@ -123,7 +121,9 @@
     for (int i=0;i<[self.icons count];i++) {
         CGPoint pointOfIcon = CGPointMake(self.screenView.frame.size.width*3/16 + (self.screenView.frame.size.width * 5/16 * (i%3)), self.screenView.frame.size.width*3/16 + (self.screenView.frame.size.width * 5/16 * (i/3)));
         IconButton *icon= [self.icons objectAtIndex:i];
+        icon.frame = CGRectMake(0, 0, self.screenView.frame.size.width*4 /16, self.screenView.frame.size.width*4 /16);
         icon.center = pointOfIcon;
+        icon.nameLabel.frame = CGRectMake(0, icon.frame.size.height,icon.frame.size.width ,20 );
     }
     
 }
@@ -228,9 +228,8 @@
 }
 
 -(void)update{
-    if (self.startUpdating) {
-        [self setupView];
-    }
+    [self setupView];
+    
     
 }
 

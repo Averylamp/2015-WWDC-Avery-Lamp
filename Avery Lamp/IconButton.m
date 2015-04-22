@@ -28,6 +28,8 @@
     if (!self.nameLabel) {
         self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height,self.frame.size.width ,20 )];
         self.nameLabel.text = self.name;
+        self.nameLabel.adjustsFontSizeToFitWidth = YES;
+        self.nameLabel.minimumScaleFactor = 8./self.nameLabel.font.pointSize;
         self.nameLabel.textAlignment = NSTextAlignmentCenter;
         self.nameLabel.font= [UIFont fontWithName:@"Helvetica" size:12];
         self.nameLabel.textColor = [UIColor whiteColor];
