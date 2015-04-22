@@ -108,7 +108,7 @@
 }
 
 -(void)setupView{
-    NSLog(@"iPhoneSize %f , %f",self.view.frame.size.width,self.view.frame.size.height);
+
     self.iPhoneImage.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.screenView.frame= CGRectMake(0.08278990644 *self.iPhoneImage.frame.size.width , 0.1503759398 * self.iPhoneImage.frame.size.height,self.iPhoneImage.frame.size.width -(2*self.iPhoneImage.frame.size.width *0.08278990644 ),self.iPhoneImage.frame.size.height - (( 0.1503759398+0.1409774436)* self.iPhoneImage.frame.size.height));
     self.backgroundImage.frame = CGRectMake(0, 0, self.screenView.frame.size.width, self.screenView.frame.size.height);

@@ -22,10 +22,12 @@
 @property NSMutableArray *iPhoneVCS;
 @property iPhoneViewController *currentiPhoneVC;
 @property BOOL switchingiPhoneAnimation;
-@property int index;
+
+@property int flippingIconIndex;
+@property NSMutableArray *flippingIconImages;
+@property UIImageView *flippingImageView;
 
 @property double swipeAnimationTime;
-
 
 @property UIView *currentiPhone;
 
@@ -69,18 +71,47 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self addiPhonesAndAllViews];
-    [self animateUpToiPhone:self.currentiPhone];
-    [self  animateToRightView:self.rightiPhone];
-    [self  animateToLeftView:self.leftiPhone];
-    [self.view bringSubviewToFront:self.currentiPhone];
+    [self addAndAnimateiPhonesToIndex:2];
     
+}
+-(void)addAndAnimateiPhonesToIndex:(int)index{
+    //0 Home 1 Projects 2 Interests
+    if (index==0) {
+        [self addiPhonesAndAllViews];
+        [self animateUpToiPhone:self.currentiPhone];
+        [self  animateToRightView:self.rightiPhone];
+        [self  animateToLeftView:self.leftiPhone];
+        [self.view bringSubviewToFront:self.currentiPhone];
+    }else if (index==1){
+        [self addiPhonesAndAllViews];
+        [self  animateToRightView:self.currentiPhone];
+        [self  animateToLeftView:self.rightiPhone];
+        [self animateUpToiPhone:self.leftiPhone];
+        UIView *temp = self.leftiPhone;
+        self.leftiPhone = self.rightiPhone;
+        self.rightiPhone = self.currentiPhone;
+        self.currentiPhone = temp;
+        [self.view bringSubviewToFront:self.currentiPhone];
+    }else if (index==2){
+        [self addiPhonesAndAllViews];
+        [self  animateToRightView:self.leftiPhone];
+        [self  animateToLeftView:self.currentiPhone];
+        [self animateUpToiPhone:self.rightiPhone];
+        UIView *temp = self.rightiPhone;
+        self.rightiPhone = self.leftiPhone;
+        self.leftiPhone = self.currentiPhone;
+        self.currentiPhone = temp;
+        [self.view bringSubviewToFront:self.currentiPhone];
+    }
+    self.flippingImageView.image = [self.flippingIconImages objectAtIndex:index];
+    self.flippingIconIndex = index;
 }
 
 -(void)initExtras{
     self.iPhones = [[NSMutableArray alloc]init];
     self.iPhoneVCS = [[NSMutableArray alloc]init];
-    self.swipeAnimationTime = 0.6;
+    self.swipeAnimationTime =0.6;
+    self.flippingIconImages = [[NSMutableArray alloc]init];
 }
 
 -(void)addiPhonesAndAllViews{
@@ -103,7 +134,7 @@
     
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     [self.view addSubview:view];
-    [self.view addSubview:view];
+    self.currentiPhone = view;
     iPhoneViewController *blueiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"BlueiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"Deck"]];
     blueiPhone.delegate =self;
     blueiPhone.mainVC = self;
@@ -119,10 +150,8 @@
     [self.iPhones addObject:view];
     [self.iPhoneVCS addObject:blueiPhone];
     
-    self.currentiPhone = view;
     
     view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
-    view.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
     self.leftiPhone = view;
     //    [self animateToLeftView:view];
     [self.view addSubview:view];
@@ -149,7 +178,6 @@
     //    view = [[UIView alloc]initWithFrame:CGRectMake(15, 15, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     [self.view addSubview:view];
     self.rightiPhone = view;
-    view.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
     //    [self animateToRightView:view];
     
     iPhoneViewController*greeniPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"GreeniPhone5c"] withView:view andBackground:[UIImage imageNamed:@"Lighthouse"]];
@@ -173,11 +201,36 @@
     [self.view addGestureRecognizer:iPhoneSwipe];
     
     
+//    [self.flippingIconImages addObject:[MainViewController imageWithColor:[UIColor blueColor]]];
+//    [self.flippingIconImages addObject:[MainViewController imageWithColor:[UIColor purpleColor]]];
+//    [self.flippingIconImages addObject:[MainViewController imageWithColor:[UIColor greenColor]]];
+    [self.flippingIconImages addObject:[UIImage imageNamed:@"Headshot"]];
+    [self.flippingIconImages addObject:[UIImage imageNamed:@"SnapprIcon"]];
+    [self.flippingIconImages addObject:[UIImage imageNamed:@"ViewZikIcon"]];
+    
+    
+    
+    self.flippingImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 150, 150)];
+    self.flippingImageView.center = CGPointMake(self.screenSize.width/2, self.screenSize.height/3);
+    self.flippingImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:self.flippingImageView];
     
 }
 
 
-
++ (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 
 
 
@@ -200,12 +253,28 @@
     
     
     if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
+        
+        if (self.flippingIconIndex >0) {
+            self.flippingIconIndex --;
+        }else{
+            self.flippingIconIndex = 2;
+        }
+        [self flipIconImageFromLeft:1 right:0];
+        
         UIView *temp;
         temp = self.leftiPhone;
         self.leftiPhone = self.currentiPhone;
         self.currentiPhone = self.rightiPhone;
         self.rightiPhone = temp;
     }else if(gesture.direction ==UISwipeGestureRecognizerDirectionRight){
+        
+        if (self.flippingIconIndex <2) {
+            self.flippingIconIndex ++;
+        }else{
+            self.flippingIconIndex = 0;
+        }
+        [self flipIconImageFromLeft:0 right:1];
+        
         UIView *temp;
         temp = self.leftiPhone;
         self.leftiPhone = self.rightiPhone;
@@ -217,79 +286,41 @@
     [self animateToRightView:self.rightiPhone];
     [self animateToCenterView:self.currentiPhone];
 
+    
 }
 
 -(void)animateToLeftView:(UIView *)view{
-
+    view.userInteractionEnabled = NO;
     CGRect frame = CGRectMake(-65, self.screenSize.height/2-130, 130, 130*532.0 /254.0);
-    [self rectLerpTapped:view withFrame:frame duration:1];
+    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime selector:nil];
     
     
-    
-//    view.userInteractionEnabled = NO;
-//    CGAffineTransform transform = CGAffineTransformIdentity;
-//    transform = CGAffineTransformTranslate(transform,-self.screenSize.width/2, -250);
-//    transform = CGAffineTransformScale(transform,0.5, 0.5);
-//    
-//    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        view.transform = transform;
-//        [self.view layoutIfNeeded];
-//    } completion:nil];
 }
 
 -(void)animateToRightView:(UIView *)view{
-
+    view.userInteractionEnabled = NO;
     CGRect frame = CGRectMake(self.screenSize.width-65, self.screenSize.height/2-130, 130, 130*532.0 /254.0);
-    [self rectLerpTapped:view withFrame:frame duration:1];
+    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime selector:nil];
     
     
-    //    view.userInteractionEnabled = NO;
-//    CGAffineTransform transform = CGAffineTransformIdentity;
-//    transform = CGAffineTransformTranslate(transform,self.screenSize.width/2, -250);
-//    transform = CGAffineTransformScale(transform,0.5, 0.5);
-//
-//    
-//    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        view.transform = transform;
-//                [self.view layoutIfNeeded];
-//    } completion:nil];
-
 }
 -(void)animateToCenterView:(UIView *)view{
     view.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:view];
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    transform = CGAffineTransformTranslate(transform,0,0);
-    transform = CGAffineTransformScale(transform,1, 1);
+    CGRect frame = CGRectMake(15, self.screenSize.height -( (self.screenSize.width - 30) *532.0 /254.0)/2 , self.screenSize.width -30, (self.screenSize.width - 30) *532.0 /254.0);
+    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime selector:@selector(animationComplete)];
     
     
-    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        view.transform = transform;
-        [self.view layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        self.switchingiPhoneAnimation = NO;
-        view.userInteractionEnabled = YES;
-    }];
+}
+
+-(void)animationComplete{
+    self.switchingiPhoneAnimation = NO;
+    self.currentiPhone.userInteractionEnabled =  YES;
 }
 
 
--(void)switchiPhoneFrom:(UIView*)previousIphone to:(UIView*)targetiPhone{
-    if (self.switchingiPhoneAnimation) {
-        return;
-    }else{
-        self.switchingiPhoneAnimation = YES;
-    }
-    
-    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        previousIphone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height * 2.0);
-    } completion:^(BOOL finished) {
-        if (finished) {
-            [self animateUpToiPhone:targetiPhone];
-        }
-    }];
-}
 
--(void)animateUpToiPhone:(UIView *)iPhone{
+-(void)animateUpToiPhone:(UIView *)iPhone {
     iPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height * 2.0);
     iPhone.transform = CGAffineTransformIdentity;
     [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -300,26 +331,31 @@
         self.switchingiPhoneAnimation = NO;
         [self.view layoutIfNeeded];
     }];
+    
 }
 
--(void)animateLeftToiPhone:(UIView *)iPhone{
-    iPhone.center = CGPointMake(self.screenSize.width*1.5, self.screenSize.height );
-    [UIView animateWithDuration:self.swipeAnimationTime  delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        iPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
+-(void)flipIconImageFromLeft:(int)left right:(int)right{
+    // Do the first half of the flip
+    [UIView animateWithDuration:self.swipeAnimationTime/2 delay:0 options:UIViewAnimationCurveEaseIn animations:^{
+        self.flippingImageView.layer.transform = CATransform3DMakeRotation(M_PI_2,0.0,left-right,0.0); //flip halfway
     } completion:^(BOOL finished) {
-        self.currentiPhone = iPhone;
-        self.switchingiPhoneAnimation = NO;
+        while ([self.flippingImageView.subviews count] > 0)
+            [[self.flippingImageView.subviews lastObject] removeFromSuperview]; // remove all subviews
+        // Add your new views here
+        self.flippingImageView.image = [self.flippingIconImages objectAtIndex:self.flippingIconIndex];
     }];
-}
--(void)animateRightToiPhone:(UIView *)iPhone{
-    iPhone.center = CGPointMake(self.screenSize.width*-0.5, self.screenSize.height);
     
-    [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        iPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height);
+
+    
+    // After a delay equal to the duration+delay of the first half of the flip, complete the flip
+    [UIView animateWithDuration:self.swipeAnimationTime/2  delay:self.swipeAnimationTime/2 options:UIViewAnimationCurveEaseOut animations:^{
+        self.flippingImageView.layer.transform = CATransform3DMakeRotation(M_PI,0.0,left-right,0.0); //finish the flip
     } completion:^(BOOL finished) {
-        self.currentiPhone = iPhone;
-        self.switchingiPhoneAnimation = NO;
+        //completion code
     }];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -337,9 +373,15 @@
     }
 }
 
--(void)rectLerpTapped:(UIView*)view withFrame:(CGRect)frame duration:(int)duration{
+-(void)rectLerpTapped:(UIView*)view withFrame:(CGRect)frame duration:(CGFloat)duration selector:(SEL)selector{
     animatingView = view;
-    activeTweenOperation = [PRTweenCGRectLerp lerp:animatingView property:@"frame" from:view.frame to:frame duration:duration timingFunction:&PRTweenTimingFunctionExpoOut  target:self completeSelector:@selector(openIconVC)];
+    if (selector) {
+        activeTweenOperation = [PRTweenCGRectLerp lerp:animatingView property:@"frame" from:view.frame to:frame duration:duration timingFunction:&PRTweenTimingFunctionSineInOut  target:self completeSelector:selector];
+        return;
+    }else{
+        [PRTweenCGRectLerp lerp:animatingView property:@"frame" from:view.frame to:frame duration:duration];
+    }
+    
 }
 #pragma mark - Clicking on Icons
 
@@ -354,7 +396,7 @@
     }
     
     self.currentiPhoneVC = iPhoneVC;
-    [self rectLerpTapped:iPhoneView withFrame:CGRectMake(-0.08278990644 *iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), -0.1503759398 * iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height )), iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height ))) duration:1];
+    [self rectLerpTapped:iPhoneView withFrame:CGRectMake(-0.08278990644 *iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), -0.1503759398 * iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height )), iPhoneView.frame.size.width * (self.screenSize.height /iPhoneVC.screenView.frame.size.height ), iPhoneView.frame.size.height * ((self.screenSize.height /iPhoneVC.screenView.frame.size.height ))) duration:1 selector:@selector(openIconVC) ];
     
 }
 
@@ -399,11 +441,11 @@
     
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-//    [self presentViewController:vc animated:YES completion:^{
-//        self.currentiPhoneVC.iconClicked= NO;
-//        self.currentiPhoneVC.swipeLocked = NO;
-//        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-//    }];
+    [self presentViewController:vc animated:YES completion:^{
+        self.currentiPhoneVC.iconClicked= NO;
+        self.currentiPhoneVC.swipeLocked = NO;
+        [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }];
 }
 
 #pragma mark - Memory Management
