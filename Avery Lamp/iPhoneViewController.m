@@ -136,15 +136,10 @@
     icon.frame = CGRectMake(0, 0, self.screenView.frame.size.width*4 /16, self.screenView.frame.size.width*4 /16);
     icon.imageView.layer.cornerRadius = 0.15625 * icon.frame.size.width;
     icon.layer.cornerRadius = 0.15625 * icon.frame.size.width;
-//    icon.bounds = CGRectMake( icon.bounds.origin.x,icon.bounds.origin.y, icon.bounds.size.width, icon.bounds.size.height + 15);
-//    icon.clipsToBounds= YES;
+
     icon.name = name;
     [icon refreshNameLabel];
 
-//      icon.clipsToBounds= YES;
-//    icon.layer.masksToBounds = YES;
-    
-    //    NSLog(@"%f x %f , r %f ",self.screenView.frame.size.width*4.0 /16.0,self.screenView.frame.size.width*4.0 /16.0,0.15625 * icon.frame.size.width);
     [self.screenView addSubview:icon];
     [self.icons addObject:icon];
     
@@ -161,7 +156,6 @@
     self.swipeLocked = YES;
     self.clickedIcon = icon;
     self.splashScreen.image = icon.splashScreen;
-//    self.splashScreen.backgroundColor = [UIColor grayColor];
     self.splashScreen.hidden = NO;
     self.splashScreen.frame = CGRectMake(self.screenView.frame.size.width /2, self.screenView.frame.size.height /2, 0, 0);
     [UIView animateWithDuration:1.0 animations:^{
@@ -173,43 +167,6 @@
     
 }
 
-/*
--(void)openVC{
-    LaunchingViewController *vc;
-    
-    vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    if ([self.clickedIcon.name isEqualToString:@"Education"]) {
-        vc = [[EducationInfoViewController alloc]init];
-        vc.mainVC = self.mainVC;
-    }
-    
-    if ([self.clickedIcon.name isEqualToString:@"Skills"]) {
-        ViewController *sceneVC = (ViewController*)vc;
-        SKView *skView;
-        if (![self.view viewWithTag:12534]) {
-            skView = [[SKView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-            skView.tag = 12534;
-            skView.backgroundColor = [UIColor whiteColor];
-//            [self.mainVC.view addSubview:skView];
-        }
-        if ([self.clickedIcon.name isEqualToString:@"Skills"]) {
-            SkillsScene *scene = [SkillsScene unarchiveFromFile:@"MyScene"];
-            scene.VC = sceneVC;
-            scene.backgroundColor = [UIColor whiteColor];
-            scene.iPhoneVC = self;
-            sceneVC.scene = scene;
-            sceneVC.view = skView;
-            
-        }
-    }
-    
-    [self.mainVC presentViewController:vc animated:YES completion:^{
-        self.iconClicked= NO;
-        self.swipeLocked = NO;
-    }];
-}
-*/
 
 -(void)deallocAllVCsInIcons{
     for (IconButton *b in self.icons) {
@@ -232,22 +189,6 @@
     
     
 }
-
-
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-
-
 
 @end
 

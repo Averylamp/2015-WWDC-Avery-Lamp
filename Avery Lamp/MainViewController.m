@@ -33,6 +33,8 @@
 
 @property UIView *leftiPhone;
 @property UIView *rightiPhone;
+
+
 @end
 
 #pragma mark - SKScene unarchive
@@ -65,15 +67,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self addAndAnimateiPhonesToIndex:2];
+    [self addAndAnimateiPhonesToIndex:self.flippingIconIndex];
     
 }
+
 -(void)addAndAnimateiPhonesToIndex:(int)index{
     //0 Home 1 Projects 2 Interests
     if (index==0) {
@@ -201,9 +202,7 @@
     [self.view addGestureRecognizer:iPhoneSwipe];
     
     
-//    [self.flippingIconImages addObject:[MainViewController imageWithColor:[UIColor blueColor]]];
-//    [self.flippingIconImages addObject:[MainViewController imageWithColor:[UIColor purpleColor]]];
-//    [self.flippingIconImages addObject:[MainViewController imageWithColor:[UIColor greenColor]]];
+//Three flipping icon images
     [self.flippingIconImages addObject:[UIImage imageNamed:@"Headshot"]];
     [self.flippingIconImages addObject:[UIImage imageNamed:@"SnapprIcon"]];
     [self.flippingIconImages addObject:[UIImage imageNamed:@"ViewZikIcon"]];
@@ -217,24 +216,7 @@
     
 }
 
-
-+ (UIImage *)imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
-
-
-
-#pragma mark - Switching between iPhones
+#pragma mark - Animation
 -(void)handleSwipeGesture:(UISwipeGestureRecognizer *)gesture{
     iPhoneViewController *currentVC;
     for (iPhoneViewController *vc in self.iPhoneVCS) {
@@ -292,7 +274,7 @@
 -(void)animateToLeftView:(UIView *)view{
     view.userInteractionEnabled = NO;
     CGRect frame = CGRectMake(-65, self.screenSize.height/2-130, 130, 130*532.0 /254.0);
-    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime selector:nil];
+    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime-0.1 selector:nil];
     
     
 }
@@ -308,17 +290,10 @@
     view.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:view];
     CGRect frame = CGRectMake(15, self.screenSize.height -( (self.screenSize.width - 30) *532.0 /254.0)/2 , self.screenSize.width -30, (self.screenSize.width - 30) *532.0 /254.0);
-    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime selector:@selector(animationComplete)];
+    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime-0.1 selector:@selector(animationComplete)];
     
     
 }
-
--(void)animationComplete{
-    self.switchingiPhoneAnimation = NO;
-    self.currentiPhone.userInteractionEnabled =  YES;
-}
-
-
 
 -(void)animateUpToiPhone:(UIView *)iPhone {
     iPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height * 2.0);
@@ -334,34 +309,33 @@
     
 }
 
+-(void)animationComplete{
+    self.switchingiPhoneAnimation = NO;
+    self.currentiPhone.userInteractionEnabled =  YES;
+}
+
 -(void)flipIconImageFromLeft:(int)left right:(int)right{
     // Do the first half of the flip
-    [UIView animateWithDuration:self.swipeAnimationTime/2 delay:0 options:UIViewAnimationCurveEaseIn animations:^{
+//    self.flippingImageView.layer.transform = CATransform3DIdentity;
+    
+    [UIView animateWithDuration:self.swipeAnimationTime/2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.flippingImageView.layer.transform = CATransform3DMakeRotation(M_PI_2,0.0,left-right,0.0); //flip halfway
     } completion:^(BOOL finished) {
-        while ([self.flippingImageView.subviews count] > 0)
-            [[self.flippingImageView.subviews lastObject] removeFromSuperview]; // remove all subviews
-        // Add your new views here
         self.flippingImageView.image = [self.flippingIconImages objectAtIndex:self.flippingIconIndex];
+        [UIView animateWithDuration:self.swipeAnimationTime/2  delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.flippingImageView.layer.transform = CATransform3DMakeRotation(0,0.0,left-right,0.0);
+        } completion:^(BOOL finished) {
+            //completion code
+        }];
     }];
     
 
-    
-    // After a delay equal to the duration+delay of the first half of the flip, complete the flip
-    [UIView animateWithDuration:self.swipeAnimationTime/2  delay:self.swipeAnimationTime/2 options:UIViewAnimationCurveEaseOut animations:^{
-        self.flippingImageView.layer.transform = CATransform3DMakeRotation(M_PI,0.0,left-right,0.0); //finish the flip
-    } completion:^(BOOL finished) {
-        //completion code
-    }];
     
     
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - PRTween
 
