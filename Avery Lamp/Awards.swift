@@ -58,14 +58,10 @@ import UIKit
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Awards Cell") as! UITableViewCell!
-        if (cell == nil) {
-            cell = UITableViewCell(style:.Default, reuseIdentifier: "Awards Cell")
-        }
-        
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "AwardCell")
         
         var trophyImage = UIImageView()
-        trophyImage.backgroundColor = UIColor.greenColor()
+        trophyImage.image = UIImage(named:"awardIcon".stringByAppendingString(allAwards[indexPath.row][0] as! String) )
         trophyImage.userInteractionEnabled = false
         cell.addSubview(trophyImage)
         
@@ -75,8 +71,8 @@ import UIKit
         textView.font = UIFont(name: "AmericanTypewriter", size: 14)
         
         if (selectedIndexPath.row == indexPath.row){
-            trophyImage.frame = CGRectMake(0, 0, 100, 100)
-            textView.frame = CGRectMake(100, 0, UIScreen.mainScreen().bounds.width - 100, 100)
+            trophyImage.frame = CGRectMake(0, 0, 70, 70)
+            textView.frame = CGRectMake(70, 0, UIScreen.mainScreen().bounds.width - 70, 70)
             textView.text = allAwards[indexPath.row][2] as! String
             cell .addSubview(textView)
         }else{
@@ -86,13 +82,19 @@ import UIKit
             cell .addSubview(textView)
         }
         
+        cell.layer.cornerRadius = 10
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(red: 44.0/255.0, green: 232.0/255.0, blue: 148.0/255/0, alpha: 1/0).CGColor
+        cell.layer.masksToBounds = true
+        
+        
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if(selectedIndexPath.row == indexPath.row){
-            return 100
+            return 70
         }else{
             return 40
         }
