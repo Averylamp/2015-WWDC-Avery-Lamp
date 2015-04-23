@@ -39,14 +39,30 @@ static const uint32_t icon = 0x1 <<0;
     SKPhysicsBody* borderBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     self.physicsBody = borderBody;
     
-    SKNode *ObjC = [self nodeWithName:@"Objective-C" andRadius:100 andColor:[UIColor colorWithRed:0.800f green:0.820f blue:0.671f alpha:1.00f] andTextColor:[UIColor blackColor] fontSize:38];
-    [self addChild:ObjC];
+    SKNode *ObjC = [self nodeWithName:@"Objective-C" andRadius:100 andColor:[UIColor colorWithRed:0.800f green:0.820f blue:0.671f alpha:1.00f] andTextColor:[UIColor blackColor] fontSize:36];
+
     SKNode *java = [self nodeWithName:@"Java" andRadius:100 andColor:[UIColor colorWithRed:0.325f green:0.369f blue:0.231f alpha:1.00f]andTextColor:[UIColor whiteColor]fontSize:44];
+
+    SKNode *videoPro = [self nodeWithName:@"Video" andRadius:80 andColor:[UIColor colorWithRed:0.518f green:0.173f blue:0.090f alpha:1.00f]andTextColor:[UIColor whiteColor]fontSize:40];
+
+    SKNode *photography = [self nodeWithName:@"Photography" andRadius:75 andColor:[UIColor colorWithRed:0.235f green:0.043f blue:0.137f alpha:1.00f] andTextColor:[UIColor whiteColor]fontSize:26];
+
+    SKNode *squash = [self nodeWithName:@"Squash" andRadius:130 andColor:[UIColor colorWithRed:0.902f green:0.557f blue:0.220f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:50];
+
+    SKNode *bassoon = [self nodeWithName:@"Bassoon" andRadius:70 andColor:[UIColor colorWithRed:0.239f green:0.710f blue:0.835f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:34];
+
+    SKNode *cad = [self nodeWithName:@"CAD" andRadius:70 andColor:[UIColor colorWithRed:0.788f green:0.722f blue:0.631f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:34];
+
+    SKNode *robotics = [self nodeWithName:@"Robotics" andRadius:90 andColor:[UIColor colorWithRed:0.451f green:0.663f blue:0.392f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:38];
+    
+    [self addChild:robotics];
     [self addChild:java];
-    SKNode *videoPro = [self nodeWithName:@"Video" andRadius:80 andColor:[UIColor colorWithRed:0.518f green:0.173f blue:0.090f alpha:1.00f]andTextColor:[UIColor blackColor]fontSize:40];
+    [self addChild:cad];
     [self addChild:videoPro];
-    SKNode *photography = [self nodeWithName:@"Photography" andRadius:75 andColor:[UIColor colorWithRed:0.235f green:0.043f blue:0.137f alpha:1.00f] andTextColor:[UIColor whiteColor]fontSize:28];
     [self addChild:photography];
+    [self addChild:bassoon];
+    [self addChild:squash];
+    [self addChild:ObjC];
     
     UIButton *quitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80,80 )];
     quitButton.backgroundColor = [UIColor redColor];

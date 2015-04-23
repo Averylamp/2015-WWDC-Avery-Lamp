@@ -25,6 +25,7 @@
 
 @property int flippingIconIndex;
 @property NSMutableArray *flippingIconImages;
+
 @property UIImageView *flippingImageView;
 
 @property double swipeAnimationTime;
@@ -202,14 +203,14 @@
     [self.view addGestureRecognizer:iPhoneSwipe];
     
     
-//Three flipping icon images
+    //Three flipping icon images
     [self.flippingIconImages addObject:[UIImage imageNamed:@"Headshot"]];
     [self.flippingIconImages addObject:[UIImage imageNamed:@"SnapprIcon"]];
     [self.flippingIconImages addObject:[UIImage imageNamed:@"ViewZikIcon"]];
     
     
     
-    self.flippingImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 150, 150)];
+    self.flippingImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 125, 125)];
     self.flippingImageView.center = CGPointMake(self.screenSize.width/2, self.screenSize.height/3);
     self.flippingImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.flippingImageView];
@@ -267,7 +268,7 @@
     [self animateToLeftView:self.leftiPhone];
     [self animateToRightView:self.rightiPhone];
     [self animateToCenterView:self.currentiPhone];
-
+    
     
 }
 
@@ -316,7 +317,7 @@
 
 -(void)flipIconImageFromLeft:(int)left right:(int)right{
     // Do the first half of the flip
-//    self.flippingImageView.layer.transform = CATransform3DIdentity;
+    //    self.flippingImageView.layer.transform = CATransform3DIdentity;
     
     [UIView animateWithDuration:self.swipeAnimationTime/2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.flippingImageView.layer.transform = CATransform3DMakeRotation(M_PI_2,0.0,left-right,0.0); //flip halfway
@@ -329,7 +330,7 @@
         }];
     }];
     
-
+    
     
     
     
@@ -393,22 +394,27 @@
     }
     
     if ([clickedIcon.name isEqualToString:@"Skills"]) {
-        ViewController *sceneVC = (ViewController*)vc;
+        ViewController *sceneVC = [[ViewController alloc]init];
+        sceneVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         SKView *skView;
-        if (![self.view viewWithTag:12534]) {
-            skView = [[SKView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-            skView.tag = 12534;
-            skView.backgroundColor = [UIColor whiteColor];
-            //            [self.mainVC.view addSubview:skView];
-        }
+        skView = [[SKView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        skView.backgroundColor = [UIColor whiteColor];
+        
         if ([clickedIcon.name isEqualToString:@"Skills"]) {
-            SkillsScene *scene = [SKScene unarchiveFromFile:@"MyScene"];
-            scene.VC = sceneVC;
+            SkillsScene *scene = [SkillsScene unarchiveFromFile:@"MyScene"];
+            skView.showsFPS = NO;
+            skView.showsNodeCount = NO;
+            sceneVC.scene = scene;
             scene.backgroundColor = [UIColor whiteColor];
             scene.iPhoneVC = self.currentiPhoneVC;
-            sceneVC.scene = scene;
+            scene.VC = sceneVC;
             sceneVC.view = skView;
-            
+            [self  presentViewController:sceneVC animated:YES completion:^{
+                self.currentiPhoneVC.iconClicked= NO;
+                self.currentiPhoneVC.swipeLocked = NO;
+                [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            }];
+            return;
             
         }
     }

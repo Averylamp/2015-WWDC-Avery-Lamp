@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB2BD8241AE8A3910089E47A /* BackgroundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */; };
+		BB2BD8261AE8A3A30089E47A /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8251AE8A3A30089E47A /* bokeh.png */; };
 		BB57F4E11AE3489F00437B84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E01AE3489F00437B84 /* main.m */; };
 		BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E31AE3489F00437B84 /* AppDelegate.m */; };
 		BB57F4EA1AE3489F00437B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB57F4E81AE3489F00437B84 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundParticle.sks; sourceTree = "<group>"; };
+		BB2BD8251AE8A3A30089E47A /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		BB57F4DB1AE3489F00437B84 /* Avery Lamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avery Lamp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB57F4DF1AE3489F00437B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB57F4E01AE3489F00437B84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				BB57F5091AE348BE00437B84 /* iPhoneViewController.m */,
 				BB57F50C1AE348BE00437B84 /* MainViewController.h */,
 				BB57F50D1AE348BE00437B84 /* MainViewController.m */,
+				BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */,
+				BB2BD8251AE8A3A30089E47A /* bokeh.png */,
 				BB57F4E81AE3489F00437B84 /* Main.storyboard */,
 				BB57F4EB1AE3489F00437B84 /* Images.xcassets */,
 				BB57F4ED1AE3489F00437B84 /* LaunchScreen.xib */,
@@ -278,7 +284,9 @@
 				BB57F4EA1AE3489F00437B84 /* Main.storyboard in Resources */,
 				BB57F4EF1AE3489F00437B84 /* LaunchScreen.xib in Resources */,
 				BB57F5161AE348BE00437B84 /* MyScene.sks in Resources */,
+				BB2BD8241AE8A3910089E47A /* BackgroundParticle.sks in Resources */,
 				BB57F4EC1AE3489F00437B84 /* Images.xcassets in Resources */,
+				BB2BD8261AE8A3A30089E47A /* bokeh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +521,7 @@
 				BB57F5001AE3489F00437B84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB57F5011AE3489F00437B84 /* Build configuration list for PBXNativeTarget "Avery LampTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +530,7 @@
 				BB57F5031AE3489F00437B84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

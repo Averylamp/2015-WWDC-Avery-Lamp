@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8118368B-A6AA-484D-8C45-E0517B2E5481</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Avery Lamp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C2C6459C4B2B676ACA593346666C2BDF1679CD2A</key>
 		<string>https://github.com/Averylamp/Resume.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Avery Lamp.xcodeproj/project.xcworkspace</string>
+	<string>Avery Lamp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C2C6459C4B2B676ACA593346666C2BDF1679CD2A</key>
