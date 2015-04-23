@@ -392,6 +392,10 @@
         Contact *c = [[Contact alloc]init];
         vc = c;
     }
+    if ([clickedIcon.name isEqualToString:@"Awards"]) {
+        Awards *c = [[Awards alloc]init];
+        vc = c;
+    }
     
     if ([clickedIcon.name isEqualToString:@"Skills"]) {
         ViewController *sceneVC = [[ViewController alloc]init];
@@ -417,6 +421,7 @@
             return;
             
         }
+
     }
     
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

@@ -29,6 +29,7 @@
 		BB57F5261AE3494400437B84 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB57F5251AE3494400437B84 /* UIKit.framework */; };
 		BB57F5281AE3499800437B84 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB57F5271AE3499800437B84 /* QuartzCore.framework */; };
 		BB57F52B1AE34B3100437B84 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB57F52A1AE34B3100437B84 /* Contact.swift */; };
+		BBE9BD971AE8B9A200DE1788 /* Awards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE9BD961AE8B9A200DE1788 /* Awards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		BB57F5271AE3499800437B84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avery Lamp-Bridging-Header.h"; sourceTree = "<group>"; };
 		BB57F52A1AE34B3100437B84 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		BBE9BD961AE8B9A200DE1788 /* Awards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +138,6 @@
 				BB57F5091AE348BE00437B84 /* iPhoneViewController.m */,
 				BB57F50C1AE348BE00437B84 /* MainViewController.h */,
 				BB57F50D1AE348BE00437B84 /* MainViewController.m */,
-				BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */,
-				BB2BD8251AE8A3A30089E47A /* bokeh.png */,
 				BB57F4E81AE3489F00437B84 /* Main.storyboard */,
 				BB57F4EB1AE3489F00437B84 /* Images.xcassets */,
 				BB57F4ED1AE3489F00437B84 /* LaunchScreen.xib */,
@@ -185,7 +185,10 @@
 				BB57F50F1AE348BE00437B84 /* SkillsScene.h */,
 				BB57F5101AE348BE00437B84 /* SkillsScene.m */,
 				BB57F52A1AE34B3100437B84 /* Contact.swift */,
+				BBE9BD961AE8B9A200DE1788 /* Awards.swift */,
 				BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */,
+				BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */,
+				BB2BD8251AE8A3A30089E47A /* bokeh.png */,
 			);
 			name = "Icon VCS";
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				BB57F5201AE3492B00437B84 /* PRTween.m in Sources */,
 				BB57F5131AE348BE00437B84 /* iPhoneViewController.m in Sources */,
 				BB57F5141AE348BE00437B84 /* LaunchingViewController.m in Sources */,
+				BBE9BD971AE8B9A200DE1788 /* Awards.swift in Sources */,
 				BB57F5121AE348BE00437B84 /* IconButton.m in Sources */,
 				BB57F5111AE348BE00437B84 /* EducationInfoViewController.m in Sources */,
 			);

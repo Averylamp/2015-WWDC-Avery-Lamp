@@ -12,9 +12,6 @@ import UIKit
 
     var fadeItems = [UIView]()
     
-    func method() {
-        println("adsf")
-    }
     override func viewDidLoad(){
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width
@@ -28,7 +25,7 @@ import UIKit
         var titleLabel = UILabel(frame: CGRectMake(0, 70, screenWidth, 50))
         titleLabel.text = "My Contact Information"
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.font = UIFont(name: "ArialMT", size: 30)
+        titleLabel.font = UIFont(name: "ArialMT", size: 28)
         self.view.addSubview(titleLabel)
         fadeItems.append(titleLabel)
         
@@ -37,18 +34,76 @@ import UIKit
         exitButton.addTarget(self, action: "ExitVC", forControlEvents:UIControlEvents.TouchUpInside)
         self.view.addSubview(exitButton)
         
-        var headshot = UIImageView(frame: CGRectMake(20, screenHeight/4, screenHeight/5, screenHeight/5))
+        var headshot = UIImageView(frame: CGRectMake(10, screenHeight/3.5, screenWidth/3.2, screenWidth/3.2))
         headshot.image = UIImage(named: "Headshot")
         headshot.contentMode = UIViewContentMode.ScaleAspectFit
         self.view.addSubview(headshot)
         fadeItems.append(headshot)
         
-        var name = UILabel(frame: CGRectMake(20 + screenHeight/5, screenHeight/4,  CGFloat(-20.0 + Double(screenHeight)*4.0/5.0), CGFloat(40.0)))
+        var name = UILabel(frame: CGRectMake(40 + screenWidth/3.5, screenHeight/3.5,  screenWidth * 2.5/3.5 - 40, CGFloat(40.0)))
         name.text = "Avery Lamp"
         name.font = UIFont(name: "DINAlternate-Bold", size: 36)
         self.view.addSubview(name)
         fadeItems.append(name)
         
+
+        var email = UITextView(frame:CGRectMake(40 + screenWidth/3.5, screenHeight/3.5 + 40,  screenWidth * 2.5/3.5 - 40, CGFloat(40.0)))
+        email.text = "averylamp@gmail.com"
+        email.textContainer.maximumNumberOfLines = 1
+        email.textAlignment = NSTextAlignment.Center
+        email.scrollEnabled = false
+        email.editable = false
+        email.backgroundColor = UIColor.clearColor()
+        email.dataDetectorTypes = UIDataDetectorTypes.All
+        email.font = UIFont(name: "DINAlternate-Bold",size: 18)
+        email.textColor = UIColor.blackColor()
+        email.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(email)
+        fadeItems.append(email)
+
+        
+        var phone = UITextView(frame:CGRectMake(40 + screenWidth/3.5, screenHeight/3.5 + 70,  screenWidth * 2.5/3.5 - 40, CGFloat(40.0)))
+        phone.text  = "(973)-873-8225"
+        phone.textContainer.maximumNumberOfLines = 1
+        phone.textAlignment = NSTextAlignment.Center
+        phone.scrollEnabled = false
+        phone.editable = false
+        phone.backgroundColor = UIColor.clearColor()
+        phone.dataDetectorTypes = UIDataDetectorTypes.All
+        phone.font = UIFont(name: "DINAlternate-Bold",size: 18)
+        phone.textColor = UIColor.blackColor()
+        phone.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(phone)
+        fadeItems.append(phone)
+        
+        var address = UITextView(frame:CGRectMake(40 + screenWidth/3.5, screenHeight/3.5 + 100,  screenWidth * 2.5/3.5 - 40, CGFloat(60.0)))
+        address.text  = "85 Stewart Rd,\nShort Hills, NJ"
+        address.textContainer.maximumNumberOfLines = 2
+        address.textAlignment = NSTextAlignment.Center
+        address.scrollEnabled = false
+        address.editable = false
+        address.backgroundColor = UIColor.clearColor()
+        address.dataDetectorTypes = UIDataDetectorTypes.All
+        address.font = UIFont(name: "DINAlternate-Bold",size: 18)
+        address.textColor = UIColor.blackColor()
+        address.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(address)
+        fadeItems.append(address)
+
+
+        
+        for i in 1...3{
+            var button = UIButton(frame: CGRectMake(0, 0, screenWidth/4, screenWidth/4))
+            var j = Double(i - 2) * 20
+            button.center = CGPointMake( CGFloat((Double(screenWidth) * Double(i) / 4.0) + j) , address.frame.origin.y + 150)
+            button.backgroundColor = UIColor.greenColor()
+            button.layer.cornerRadius = screenWidth/8
+            button.tag = i
+            button.addTarget(self, action: "openLink:", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(button)
+            fadeItems.append(button)
+
+        }
         
         
         
@@ -57,6 +112,20 @@ import UIKit
         }
     }
     
+    func openLink(button:UIButton){
+        if(button.tag==1){
+            println("facebook")
+            UIApplication.sharedApplication().openURL(NSURL(string: "https://www.facebook.com/avery.lamp")!)
+        } else if(button.tag==2){
+            println("Github")
+            UIApplication.sharedApplication().openURL(NSURL(string: "https://github.com/Averylamp")!)
+        }else if(button.tag==3){
+            println("Twitter")
+            UIApplication.sharedApplication().openURL(NSURL(string: "https://twitter.com/AveryLamp")!)
+        }
+        
+        
+    }
     
     override func viewDidAppear(animated: Bool) {
         let count = fadeItems.count
@@ -69,6 +138,7 @@ import UIKit
         }
 
     }
+    
     func ExitVC(){
         self.dismissViewControllerAnimated(true, completion: nil)
         

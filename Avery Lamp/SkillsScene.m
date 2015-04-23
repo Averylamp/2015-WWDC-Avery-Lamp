@@ -35,6 +35,14 @@ static const uint32_t icon = 0x1 <<0;
     [self addChild:label];
     
     
+    NSString *particlePath = [[NSBundle mainBundle] pathForResource:@"BackgroundParticle" ofType:@"sks"];
+    
+    SKEmitterNode *particleEmitter = [NSKeyedUnarchiver unarchiveObjectWithFile:particlePath];
+    particleEmitter.position = CGPointMake(self.screenSize.width/2, label.position.y);
+    particleEmitter.particlePositionRange = CGVectorMake(self.screenSize.width, 100);
+    [self addChild:particleEmitter];
+    
+    
     
     SKPhysicsBody* borderBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     self.physicsBody = borderBody;
@@ -79,6 +87,7 @@ static const uint32_t icon = 0x1 <<0;
 -(SKNode *)nodeWithName:(NSString *)name andRadius:(int)radius andColor:(UIColor*)color andTextColor:(UIColor *)textColor fontSize:(int)fontSizze{
     SKNode *node = [[SKNode alloc]init];
     node.name = name;
+    node.zPosition = 1;
     node.position = CGPointMake(self.screenSize.width * 2/4, self.screenSize.height* 1 /2);
     node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius];
     node.physicsBody.categoryBitMask = icon;
