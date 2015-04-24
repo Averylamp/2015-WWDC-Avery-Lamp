@@ -71,8 +71,8 @@ import UIKit
         textView.font = UIFont(name: "AmericanTypewriter", size: 14)
         
         if (selectedIndexPath.row == indexPath.row){
-            trophyImage.frame = CGRectMake(0, 0, 70, 70)
-            textView.frame = CGRectMake(70, 0, UIScreen.mainScreen().bounds.width - 70, 70)
+            trophyImage.frame = CGRectMake(0, 15, 40, 40)
+            textView.frame = CGRectMake(40, 0, UIScreen.mainScreen().bounds.width - 40, 70)
             textView.text = allAwards[indexPath.row][2] as! String
             cell .addSubview(textView)
         }else{
@@ -84,7 +84,7 @@ import UIKit
         
         cell.layer.cornerRadius = 10
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor(red: 44.0/255.0, green: 232.0/255.0, blue: 148.0/255/0, alpha: 1/0).CGColor
+        cell.layer.borderColor = UIColor(red: 0.235, green: 0.043, blue: 0.137, alpha: 1/0).CGColor
         cell.layer.masksToBounds = true
         
         

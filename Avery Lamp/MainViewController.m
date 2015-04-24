@@ -118,6 +118,7 @@
 
 -(void)addiPhonesAndAllViews{
     [self initExtras];
+    self.view.backgroundColor =[UIColor colorWithRed:0.796f green:0.796f blue:0.796f alpha:1.00f];
     [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     self.view.gestureRecognizers = [[NSArray alloc]init];
     
@@ -205,12 +206,14 @@
     
     //Three flipping icon images
     [self.flippingIconImages addObject:[UIImage imageNamed:@"Headshot"]];
-    [self.flippingIconImages addObject:[UIImage imageNamed:@"SnapprIcon"]];
+    [self.flippingIconImages addObject:[UIImage imageNamed:@"ProjectsIcon"]];
     [self.flippingIconImages addObject:[UIImage imageNamed:@"ViewZikIcon"]];
     
     
     
     self.flippingImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 125, 125)];
+    self.flippingImageView.layer.cornerRadius = 125/2;
+    self.flippingImageView.layer.masksToBounds = YES;
     self.flippingImageView.center = CGPointMake(self.screenSize.width/2, self.screenSize.height/3);
     self.flippingImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:self.flippingImageView];
