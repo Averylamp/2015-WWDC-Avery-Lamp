@@ -14,6 +14,13 @@
 #import "EducationInfoViewController.h"
 #import "SkillsScene.h"
 
+
+//Favorites
+//Squash
+//Projets (most)
+//Better Honors
+//
+
 @interface MainViewController ()<iPhoneDelegate>
 
 @property CGSize screenSize;
@@ -67,12 +74,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.flippingIconIndex = 2;
+    self.flippingIconIndex = 1;
     [self addAndAnimateiPhonesToIndex:self.flippingIconIndex];
     
 }
@@ -166,7 +172,7 @@
     pinkiPhone.mainVC = self;
     
     
-    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Education" ViewController: nil
+    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Snappr" ViewController: nil
                   andSplashImage:[UIImage imageNamed:@"SnapprSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"ViewZik" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SmithIcon"] Name:@"Smith" ViewController:nil andSplashImage:[UIImage imageNamed:@"SmithSplashScreen"]];
@@ -406,6 +412,10 @@
     }
     if ([clickedIcon.name isEqualToString:@"Robotics"]) {
         Robotics *c = [[Robotics alloc]init];
+        vc = c;
+    }
+    if ([clickedIcon.name isEqualToString:@"Snappr"]) {
+        Snappr *c = [[Snappr alloc]init];
         vc = c;
     }
     if ([clickedIcon.name isEqualToString:@"Skills"]) {

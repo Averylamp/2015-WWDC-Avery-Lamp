@@ -10,6 +10,7 @@
 		BB2BD8241AE8A3910089E47A /* BackgroundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */; };
 		BB2BD8261AE8A3A30089E47A /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8251AE8A3A30089E47A /* bokeh.png */; };
 		BB3564271AEA029A00A1BECD /* Photography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3564261AEA029A00A1BECD /* Photography.swift */; };
+		BB57B3261AEBF5B1006FEB62 /* Snappr.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB57B3251AEBF5B1006FEB62 /* Snappr.swift */; };
 		BB57F4E11AE3489F00437B84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E01AE3489F00437B84 /* main.m */; };
 		BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E31AE3489F00437B84 /* AppDelegate.m */; };
 		BB57F4EA1AE3489F00437B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB57F4E81AE3489F00437B84 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundParticle.sks; sourceTree = "<group>"; };
 		BB2BD8251AE8A3A30089E47A /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		BB3564261AEA029A00A1BECD /* Photography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photography.swift; sourceTree = "<group>"; };
+		BB57B3251AEBF5B1006FEB62 /* Snappr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snappr.swift; sourceTree = "<group>"; };
 		BB57F4DB1AE3489F00437B84 /* Avery Lamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avery Lamp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB57F4DF1AE3489F00437B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB57F4E01AE3489F00437B84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				BBE9BD961AE8B9A200DE1788 /* Awards.swift */,
 				BB3564261AEA029A00A1BECD /* Photography.swift */,
 				BB9C2D431AEB60AC002BB525 /* Robotics.swift */,
+				BB57B3251AEBF5B1006FEB62 /* Snappr.swift */,
 				BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */,
 				BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */,
 				BB2BD8251AE8A3A30089E47A /* bokeh.png */,
@@ -324,6 +327,7 @@
 				BB57F5151AE348BE00437B84 /* MainViewController.m in Sources */,
 				BB57F5201AE3492B00437B84 /* PRTween.m in Sources */,
 				BB57F5131AE348BE00437B84 /* iPhoneViewController.m in Sources */,
+				BB57B3261AEBF5B1006FEB62 /* Snappr.swift in Sources */,
 				BB57F5141AE348BE00437B84 /* LaunchingViewController.m in Sources */,
 				BBE9BD971AE8B9A200DE1788 /* Awards.swift in Sources */,
 				BB57F5121AE348BE00437B84 /* IconButton.m in Sources */,
@@ -454,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Avery Lamp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -470,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Avery Lamp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
