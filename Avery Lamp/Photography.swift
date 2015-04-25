@@ -252,6 +252,10 @@ import UIKit
     var arrIndex = 0
     var currentImages = [UIImageView]()
     
+    override func  prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     func ExitVC(){
         self.dismissViewControllerAnimated(true, completion: nil)
     }

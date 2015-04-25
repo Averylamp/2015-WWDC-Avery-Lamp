@@ -188,7 +188,7 @@
     greeniPhone.delegate = self;
     greeniPhone.mainVC = self;
     
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Education" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Robotics" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Photography" ViewController:nil andSplashImage:nil];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Music" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Coding" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
@@ -404,7 +404,10 @@
         Photography *c = [[Photography alloc]init];
         vc = c;
     }
-    
+    if ([clickedIcon.name isEqualToString:@"Robotics"]) {
+        Robotics *c = [[Robotics alloc]init];
+        vc = c;
+    }
     if ([clickedIcon.name isEqualToString:@"Skills"]) {
         ViewController *sceneVC = [[ViewController alloc]init];
         sceneVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
