@@ -30,6 +30,7 @@
 		BB57F5261AE3494400437B84 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB57F5251AE3494400437B84 /* UIKit.framework */; };
 		BB57F5281AE3499800437B84 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB57F5271AE3499800437B84 /* QuartzCore.framework */; };
 		BB57F52B1AE34B3100437B84 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB57F52A1AE34B3100437B84 /* Contact.swift */; };
+		BB9C2D441AEB60AC002BB525 /* Robotics.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9C2D431AEB60AC002BB525 /* Robotics.swift */; };
 		BBE9BD971AE8B9A200DE1788 /* Awards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE9BD961AE8B9A200DE1788 /* Awards.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		BB57F5271AE3499800437B84 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avery Lamp-Bridging-Header.h"; sourceTree = "<group>"; };
 		BB57F52A1AE34B3100437B84 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		BB9C2D431AEB60AC002BB525 /* Robotics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Robotics.swift; sourceTree = "<group>"; };
 		BBE9BD961AE8B9A200DE1788 /* Awards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Awards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				BB57F52A1AE34B3100437B84 /* Contact.swift */,
 				BBE9BD961AE8B9A200DE1788 /* Awards.swift */,
 				BB3564261AEA029A00A1BECD /* Photography.swift */,
+				BB9C2D431AEB60AC002BB525 /* Robotics.swift */,
 				BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */,
 				BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */,
 				BB2BD8251AE8A3A30089E47A /* bokeh.png */,
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB57F52B1AE34B3100437B84 /* Contact.swift in Sources */,
+				BB9C2D441AEB60AC002BB525 /* Robotics.swift in Sources */,
 				BB3564271AEA029A00A1BECD /* Photography.swift in Sources */,
 				BB57F51B1AE348EA00437B84 /* ViewController.m in Sources */,
 				BB57F5171AE348BE00437B84 /* SkillsScene.m in Sources */,
