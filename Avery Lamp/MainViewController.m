@@ -72,6 +72,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.flippingIconIndex = 2;
     [self addAndAnimateiPhonesToIndex:self.flippingIconIndex];
     
 }
@@ -397,6 +398,10 @@
     }
     if ([clickedIcon.name isEqualToString:@"Awards"]) {
         Awards *c = [[Awards alloc]init];
+        vc = c;
+    }
+    if ([clickedIcon.name isEqualToString:@"Photography"]) {
+        Photography *c = [[Photography alloc]init];
         vc = c;
     }
     

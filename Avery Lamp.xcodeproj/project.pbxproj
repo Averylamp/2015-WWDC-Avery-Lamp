@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BB2BD8241AE8A3910089E47A /* BackgroundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */; };
 		BB2BD8261AE8A3A30089E47A /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8251AE8A3A30089E47A /* bokeh.png */; };
+		BB3564271AEA029A00A1BECD /* Photography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3564261AEA029A00A1BECD /* Photography.swift */; };
 		BB57F4E11AE3489F00437B84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E01AE3489F00437B84 /* main.m */; };
 		BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E31AE3489F00437B84 /* AppDelegate.m */; };
 		BB57F4EA1AE3489F00437B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB57F4E81AE3489F00437B84 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundParticle.sks; sourceTree = "<group>"; };
 		BB2BD8251AE8A3A30089E47A /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
+		BB3564261AEA029A00A1BECD /* Photography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photography.swift; sourceTree = "<group>"; };
 		BB57F4DB1AE3489F00437B84 /* Avery Lamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avery Lamp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB57F4DF1AE3489F00437B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB57F4E01AE3489F00437B84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				BB57F5101AE348BE00437B84 /* SkillsScene.m */,
 				BB57F52A1AE34B3100437B84 /* Contact.swift */,
 				BBE9BD961AE8B9A200DE1788 /* Awards.swift */,
+				BB3564261AEA029A00A1BECD /* Photography.swift */,
 				BB57F5291AE34B3000437B84 /* Avery Lamp-Bridging-Header.h */,
 				BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */,
 				BB2BD8251AE8A3A30089E47A /* bokeh.png */,
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB57F52B1AE34B3100437B84 /* Contact.swift in Sources */,
+				BB3564271AEA029A00A1BECD /* Photography.swift in Sources */,
 				BB57F51B1AE348EA00437B84 /* ViewController.m in Sources */,
 				BB57F5171AE348BE00437B84 /* SkillsScene.m in Sources */,
 				BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */,

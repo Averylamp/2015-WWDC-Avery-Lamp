@@ -113,7 +113,6 @@ import UIKit
     
     func ExitVC(){
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
 
     
