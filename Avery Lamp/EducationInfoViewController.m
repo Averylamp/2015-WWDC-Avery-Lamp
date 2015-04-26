@@ -67,15 +67,6 @@
     
     
     
-    UIImageView *headshot = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Headshot"]];
-    headshot.frame = CGRectMake(0, 0, self.radius * 2 * 1.5, self.radius *2 * 1.5);
-    headshot.center =CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height * 1/5);
-    [headshot addMotionEffect:self.foregroundEffect];
-    //    [self.view addSubview:headshot];
-    UIButton *exitDuplicate = [[UIButton alloc]initWithFrame:headshot.frame];
-    [exitDuplicate addTarget:self action:@selector(exitMyInfo) forControlEvents:UIControlEventTouchUpInside];
-    //[self.view addSubview:exitDuplicate];
-    
     //Attributes
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -86,23 +77,25 @@
     
     
     
-    UILabel *myInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, headshot.frame.size.height+ 40, svWidth, 80)];
-    myInfoLabel.attributedText = [[NSAttributedString alloc]initWithString:@"My Info" attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:60],NSShadowAttributeName:shadow}];
+    UILabel *myInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, svWidth, 80)];
+    myInfoLabel.attributedText = [[NSAttributedString alloc]initWithString:@"Education" attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:60],NSShadowAttributeName:shadow}];
     [myInfoLabel addMotionEffect:self.foregroundEffect];
-    //myInfoLabel.font = [UIFont fontWithName:@"Avenir-Black" size:60];
-    myInfoLabel.textAlignment = NSTextAlignmentCenter;
+    myInfoLabel.font = [UIFont fontWithName:@"Avenir-Black" size:50];
+    myInfoLabel.textAlignment = NSTextAlignmentLeft;
     myInfoLabel.alpha = 0;
-    
-    //    [self.view addSubview:myInfoLabel];
-    self.myInfoLabel = myInfoLabel;
+
+
     
     [self addEducationInformation];
-    
+
+    self.myInfoLabel = myInfoLabel;
+    [self.view addSubview:myInfoLabel];
     // Do any additional setup after loading the view.
     
-    UIButton *returnButton = [[UIButton alloc]initWithFrame:CGRectMake(svWidth- 50, 0, 50, 50)];
-    returnButton.backgroundColor = [UIColor redColor];
+    UIButton *returnButton = [[UIButton alloc]initWithFrame:CGRectMake(svWidth- 60, 20, 40, 40)];
+
     [returnButton addTarget:self action:@selector(exitMyInfo) forControlEvents:UIControlEventTouchUpInside];
+    [returnButton setImage:[UIImage imageNamed:@"exitButton"] forState:UIControlStateNormal];
     [self.view addSubview:returnButton];
     
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
@@ -226,16 +219,16 @@
     
     UIImageView *schoolImage= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"teacher"]];
     schoolImage.tag=1;
-    schoolImage.frame = CGRectMake(20, 60, 70, 70);
+    schoolImage.frame = CGRectMake(20, 80, 70, 70);
     [schoolImage addMotionEffect:self.foregroundEffect];
     [educationInformation addSubview:schoolImage];
     [self.allEducationInformationItems addObject:schoolImage];
     
-    UILabel *schoolLabel = [[UILabel alloc]initWithFrame:CGRectMake(90, 65, svWidth - 90, 35)];
+    UILabel *schoolLabel = [[UILabel alloc]initWithFrame:CGRectMake(90, 85, svWidth - 90, 35)];
     NSAttributedString *schoolText = [[NSAttributedString alloc]initWithString:@"Millburn High" attributes:labelAttributes];
     schoolLabel.attributedText = schoolText;
     [educationInformation addSubview:schoolLabel];
-    UILabel *schoolLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 100, svWidth - 90, 35)];
+    UILabel *schoolLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 120, svWidth - 90, 35)];
     NSAttributedString *schoolText2 = [[NSAttributedString alloc]initWithString:@"School" attributes:labelAttributes];
     schoolLabel2.attributedText = schoolText2;
     [educationInformation addSubview:schoolLabel2];
@@ -245,16 +238,16 @@
     
     UIImageView *graduateImage= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"graduateHat"]];
     graduateImage.tag = 1;
-    graduateImage.frame = CGRectMake(20, 150, 70, 70);
+    graduateImage.frame = CGRectMake(20, 170, 70, 70);
     [graduateImage addMotionEffect:self.foregroundEffect];
     [educationInformation addSubview:graduateImage];
     [self.allEducationInformationItems addObject:graduateImage];
     
-    UILabel *graduateLabel = [[UILabel alloc]initWithFrame:CGRectMake(90, 155, svWidth - 90, 35)];
+    UILabel *graduateLabel = [[UILabel alloc]initWithFrame:CGRectMake(90, 175, svWidth - 90, 35)];
     NSAttributedString *graduateText = [[NSAttributedString alloc]initWithString:@"Class of" attributes:labelAttributes];
     graduateLabel.attributedText = graduateText;
     [educationInformation addSubview:graduateLabel];
-    UILabel *graduateLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 190, svWidth - 90, 35)];
+    UILabel *graduateLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 210, svWidth - 90, 35)];
     NSMutableAttributedString *graduateText2 = [[NSMutableAttributedString alloc]initWithString:@"2016"];
     [graduateText2 addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Arial-BoldMT" size:30] range:(NSRange){0,4}];
     [graduateText2 addAttribute:NSShadowAttributeName value:shadow range:(NSRange){0,4}];
@@ -266,16 +259,16 @@
     
     UIImageView *homeImage= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"home"]];
     homeImage.tag = 1;
-    homeImage.frame = CGRectMake(20, 240, 70, 70);
+    homeImage.frame = CGRectMake(20, 260, 70, 70);
     [homeImage addMotionEffect:self.foregroundEffect];
     [educationInformation addSubview:homeImage];
     [self.allEducationInformationItems addObject:homeImage];
     
-    UILabel *homeLabel = [[UILabel alloc]initWithFrame:CGRectMake(90, 245, svWidth - 90, 35)];
+    UILabel *homeLabel = [[UILabel alloc]initWithFrame:CGRectMake(90, 265, svWidth - 90, 35)];
     NSAttributedString *homeText = [[NSAttributedString alloc]initWithString:@"Short Hills," attributes:labelAttributes];
     homeLabel.attributedText = homeText;
     [educationInformation addSubview:homeLabel];
-    UILabel *homeLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 280, svWidth - 90, 35)];
+    UILabel *homeLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(90, 300, svWidth - 90, 35)];
     NSAttributedString *homeText2 = [[NSAttributedString alloc]initWithString:@"New Jersey" attributes:labelAttributes];
     homeLabel2.attributedText = homeText2;
     [educationInformation addSubview:homeLabel2];
@@ -290,7 +283,7 @@
     }
     [self.allEducationInformationItems addObjectsFromArray:allLabels];
     
-    MKMapView *homeMapView= [[MKMapView alloc]initWithFrame:CGRectMake(15, 345, educationInformation.frame.size.width-30, educationInformation.frame.size.height - 345-30)];
+    MKMapView *homeMapView= [[MKMapView alloc]initWithFrame:CGRectMake(15, 355, educationInformation.frame.size.width-30, educationInformation.frame.size.height - 355-30)];
     homeMapView.tag = 3;
     [self.allEducationInformationItems addObject:homeMapView];
     for (UIView *view in self.allEducationInformationItems) {

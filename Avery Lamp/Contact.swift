@@ -25,7 +25,7 @@ import UIKit
         var titleLabel = UILabel(frame: CGRectMake(0, 70, screenWidth, 50))
         titleLabel.text = "Contact"
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.font = UIFont(name: "ArialMT", size: 45)
+        titleLabel.font = UIFont(name: "Avenir-Black", size: 45)
         self.view.addSubview(titleLabel)
         fadeItems.append(titleLabel)
         

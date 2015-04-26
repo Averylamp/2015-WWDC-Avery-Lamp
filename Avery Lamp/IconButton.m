@@ -15,6 +15,25 @@
     if (self) {
         self.viewControllerToLaunch = nil;
         
+        UIImage *inputImage = image;
+        CGImageRef maskRef = [UIImage imageNamed:@"AppIconMask"].CGImage;
+        
+        CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+                                            CGImageGetHeight(maskRef),
+                                            CGImageGetBitsPerComponent(maskRef),
+                                            CGImageGetBitsPerPixel(maskRef),
+                                            CGImageGetBytesPerRow(maskRef),
+                                            CGImageGetDataProvider(maskRef), NULL, false);
+        
+        CGImageRef masked = CGImageCreateWithMask([inputImage CGImage], mask);
+        CGImageRelease(mask);
+        
+        UIImage *maskedImage = [UIImage imageWithCGImage:masked];
+        
+        CGImageRelease(masked);
+        image = maskedImage;
+        
+        
         [self setBackgroundImage:image forState:UIControlStateNormal];
         [self setBackgroundImage:[IconButton colorizeImage:image withColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
         self.iconImage = image;

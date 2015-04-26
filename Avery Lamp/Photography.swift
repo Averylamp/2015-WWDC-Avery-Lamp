@@ -34,8 +34,13 @@ import UIKit
         self.view.addSubview(titleLabel)
         
         
+        var visit = UILabel (frame: CGRectMake(0, screenHeight - 90, screenWidth, 40))
+        visit.text = "Visit my Facebook Page"
+        visit.font = UIFont(name: "ArialMT", size: 18)
+        visit.textAlignment = NSTextAlignment.Center
+        self.view.addSubview(visit)
         
-        var facebookLink = UIButton(frame: CGRectMake(15, 68, screenWidth-30, 30))
+        var facebookLink = UIButton(frame: CGRectMake(15, screenHeight - 50, screenWidth-30, 30))
         facebookLink.backgroundColor = UIColor(red: 0.227, green: 0.341, blue: 0.584, alpha: 1.0)
         facebookLink.setTitle("Avery Lamp Photography", forState: UIControlState.Normal)
         facebookLink.layer.cornerRadius = 10
@@ -81,7 +86,9 @@ import UIKit
         self.view.addSubview(numberLabel)
         
         setNumberLabel()
-        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.numberLabel.frame = CGRectMake(0, self.currentImage.frame.size.height + self.currentImage.frame.origin.y + 108, screenWidth, 30)
+        })
     }
     
     var numberLabel = UILabel()

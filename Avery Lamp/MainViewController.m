@@ -78,7 +78,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.flippingIconIndex = 0;
+//    self.flippingIconIndex = 0;
     [self addAndAnimateiPhonesToIndex:self.flippingIconIndex];
     
 }
@@ -167,7 +167,7 @@
     [self.view addSubview:view];
     
     
-    iPhoneViewController*pinkiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"PinkiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"FancyRocks"]];
+    iPhoneViewController*pinkiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"PinkiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"pinkiPhoneBackground"]];
     pinkiPhone.delegate = self;
     pinkiPhone.mainVC = self;
     
@@ -196,7 +196,7 @@
     
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Robotics" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Photography" ViewController:nil andSplashImage:nil];
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Music" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Favorites" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Coding" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     
     [greeniPhone setupView];
@@ -419,7 +419,7 @@
         Snappr *c = [[Snappr alloc]init];
         vc = c;
     }
-    if ([clickedIcon.name isEqualToString:@"Skills"]) {
+    if ([clickedIcon.name isEqualToString:@"Skills"]||[clickedIcon.name isEqualToString:@"Favorites"]) {
         ViewController *sceneVC = [[ViewController alloc]init];
         sceneVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         SKView *skView;

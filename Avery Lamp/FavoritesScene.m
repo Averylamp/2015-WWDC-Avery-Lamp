@@ -24,8 +24,8 @@ static const uint32_t icon = 0x1 <<0;
     CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
     self.screenSize = screenSize;
     
-    SKLabelNode *label = [[SKLabelNode alloc]initWithFontNamed:@"Hoefler Text"];
-    label.text = @"Skills";
+    SKLabelNode *label = [[SKLabelNode alloc]initWithFontNamed:@"Avenir-Black"];
+    label.text = @"Favorites";
     label.name = @"Welcome Label";
     label.position = CGPointMake(screenSize.width/2,screenSize.height * 5 /6);
     label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
@@ -72,8 +72,8 @@ static const uint32_t icon = 0x1 <<0;
     [self addChild:squash];
     [self addChild:ObjC];
     
-    UIButton *quitButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80,80 )];
-    quitButton.backgroundColor = [UIColor redColor];
+    UIButton *quitButton = [[UIButton alloc]initWithFrame:CGRectMake(screenSize.width - 60, 20, 40,40 )];
+    [quitButton setBackgroundImage:[UIImage imageNamed:@"exitButton"] forState:UIControlStateNormal];
     [quitButton addTarget:self action:@selector(exitVC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:quitButton];
     
