@@ -134,8 +134,14 @@
     welcomeLabel.text = @"Welcome";
     welcomeLabel.textAlignment = NSTextAlignmentCenter;
     welcomeLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:60];
+
     [self.view addSubview:welcomeLabel];
     
+    UILabel *averyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, welcomeLabel.frame.size.height + welcomeLabel.frame.origin.y, self.view.frame.size.width,30)];
+    averyLabel.text = @"about Avery Lamp";
+    averyLabel.textAlignment = NSTextAlignmentCenter;
+    averyLabel.font = [UIFont fontWithName:@"Helvetica" size:24];
+    [self.view addSubview:averyLabel];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     //    CGFloat screenScale = [[UIScreen mainScreen] scale];
@@ -145,7 +151,7 @@
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     [self.view addSubview:view];
     self.currentiPhone = view;
-    iPhoneViewController *blueiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"BlueiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"spaceBackground"]];
+    iPhoneViewController *blueiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"GreeniPhone5c"] withView:view andBackground:[UIImage imageNamed:@"greeniPhoneCBackground"]];
     blueiPhone.delegate =self;
     blueiPhone.mainVC = self;
     
@@ -171,12 +177,12 @@
     pinkiPhone.delegate = self;
     pinkiPhone.mainVC = self;
     
-    
+    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"USSquashIcon"] Name:@"U.S. Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@"USSquashSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Snappr" ViewController: nil
                   andSplashImage:[UIImage imageNamed:@"SnapprSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"ViewZik" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SmithIcon"] Name:@"Smith" ViewController:nil andSplashImage:[UIImage imageNamed:@"SmithSplashScreen"]];
-    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"USSquashIcon"] Name:@"U.S. Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@"USSquashSplashScreen"]];
+
     
     
     
@@ -190,14 +196,14 @@
     self.rightiPhone = view;
     //    [self animateToRightView:view];
     
-    iPhoneViewController*greeniPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"GreeniPhone5c"] withView:view andBackground:[UIImage imageNamed:@"greeniPhoneCBackground"]];
+    iPhoneViewController*greeniPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"BlueiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"spaceBackground"]];
     greeniPhone.delegate = self;
     greeniPhone.mainVC = self;
     
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"RoboticsIcon"] Name:@"Robotics" ViewController:nil andSplashImage:[UIImage imageNamed:@"RoboticsSplash"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"PhotographyIcon"] Name:@"Photography" ViewController:nil andSplashImage:nil];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"FavoritesIcon"] Name:@"Favorites" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Coding" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"SquashIcon"] Name:@"Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     
     [greeniPhone setupView];
     [self.iPhones addObject:view];
@@ -212,14 +218,14 @@
     
     
     //Three flipping icon images
-    [self.flippingIconImages addObject:[UIImage imageNamed:@"Headshot"]];
+    [self.flippingIconImages addObject:[UIImage imageNamed:@"MainFlippingIcon"]];
     [self.flippingIconImages addObject:[UIImage imageNamed:@"ProjectsIcon"]];
-    [self.flippingIconImages addObject:[UIImage imageNamed:@"ViewZikIcon"]];
+    [self.flippingIconImages addObject:[UIImage imageNamed:@"InterestsIcon"]];
     
     
     
-    self.flippingImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 125, 125)];
-    self.flippingImageView.layer.cornerRadius = 125/2;
+    self.flippingImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    self.flippingImageView.layer.cornerRadius = 100/2;
     self.flippingImageView.layer.masksToBounds = YES;
     self.flippingImageView.center = CGPointMake(self.screenSize.width/2, self.screenSize.height/3);
     self.flippingImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -432,6 +438,9 @@
     }
     if ([clickedIcon.name isEqualToString:@"U.S. Squash"]) {
         USSquash *c = [[USSquash alloc]init];
+        vc = c;
+    }    if ([clickedIcon.name isEqualToString:@"Squash"]) {
+        Squash *c = [[Squash alloc]init];
         vc = c;
     }
     if ([clickedIcon.name isEqualToString:@"Skills"]||[clickedIcon.name isEqualToString:@"Favorites"]) {

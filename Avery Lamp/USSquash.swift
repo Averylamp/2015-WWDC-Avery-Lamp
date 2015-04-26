@@ -44,7 +44,7 @@ class USSquash: UIViewController, UIScrollViewDelegate {
         
         var shortDesc = UILabel(frame: CGRectMake(10, titleImage.frame.size.height, screenWidth - 20, 200))
         shortDesc.numberOfLines = 0
-        var text = "I created the U.S. Squash app over the summer of 2014 as an Intern for U.S. Squash."
+        var text = "I created an iPad app for U.S. Squash as an intern over the summer of 2014."
         shortDesc.font = UIFont(name: "Helvetica", size: 20)
         shortDesc.text  = text
         shortDesc.sizeToFit()
@@ -83,39 +83,39 @@ class USSquash: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(page2)
         scrollView.addSubview(page3)
         
-        var smithHome = UIImageView(frame: CGRectMake(0, 0, page1.frame.size.width * 1.5/2.5, page1.frame.size.height - 30))
-        smithHome.contentMode = UIViewContentMode.ScaleAspectFit
-        smithHome.image = UIImage(named: "SmithHome")
-        smithHome.layer.cornerRadius = 3
-        page1.addSubview(smithHome)
+        var tournamentList = UIImageView(frame: CGRectMake(0, 0, page1.frame.size.width * 1.5/2.5, page1.frame.size.height - 30))
+        tournamentList.contentMode = UIViewContentMode.ScaleAspectFit
+        tournamentList.image = UIImage(named: "TournamentList")
+        tournamentList.layer.cornerRadius = 3
+        page1.addSubview(tournamentList)
         
         var homeDesc = UITextView(frame: CGRectMake(page1.frame.size.width * 1.5 / 2.5, 0, screenWidth * 1 / 2.5, page1.frame.size.height))
         homeDesc.font = UIFont(name: "Helvetica", size: 16)
         homeDesc.editable = false
-        homeDesc.text = "This is what the home of Smith looks like.  It is where all actions are triggerd and Smith is listening."
+        homeDesc.text = "The U.S. Squash app opens to a list of tournaments sorted through options.  A user would click on the tournaments that interests them to see the draws, matches, or live scoring if available."
         page1.addSubview(homeDesc)
         
         
         var smithCreate =  UIImageView(frame: CGRectMake(20, 0, screenWidth - 40, page2.frame.size.height * 1.5 / 2.5))
         smithCreate.contentMode = UIViewContentMode.ScaleAspectFit
-        smithCreate.image = UIImage(named: "SmithTaps")
+        smithCreate.image = UIImage(named: "USSquashTournament")
         page2.addSubview(smithCreate)
         
         var createDesc = UITextView(frame: CGRectMake(20, page2.frame.size.height * 1.5 / 2.5, screenWidth - 40, page2.frame.size.height / 2.5))
         createDesc.font = UIFont(name: "Helvetica", size: 16)
-        createDesc.text = "This is where a user creates their own actions with their own tapping patterns"
+        createDesc.text = "After a user clicks on a tournament, all the tournament divisions and draws load on the screen.  A user can click on each match to get the current rankings of the two players."
         createDesc.editable = false
         page2.addSubview(createDesc)
         
         
         var smithOptions =  UIImageView(frame: CGRectMake(20, 0, screenWidth - 40, page3.frame.size.height * 1.5 / 2.5))
         smithOptions.contentMode = UIViewContentMode.ScaleAspectFit
-        smithOptions.image = UIImage(named: "SmithActions")
+        smithOptions.image = UIImage(named: "USSquashTournamentInfo")
         page3.addSubview(smithOptions)
         
         var optionsDesc = UITextView(frame: CGRectMake(20, page3.frame.size.height * 1.5 / 2.5, screenWidth - 40, page3.frame.size.height / 2.5))
         optionsDesc.font = UIFont(name: "Helvetica", size: 16)
-        optionsDesc.text = "A user has many options of actions.  Above are some of them."
+        optionsDesc.text = "A user can also view data on the tournaments uploaded by U.S. Squash.  It gives the full functionality of the U.S. Squash website."
         optionsDesc.editable = false
         page3.addSubview(optionsDesc)
         

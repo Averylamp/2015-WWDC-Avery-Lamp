@@ -75,7 +75,7 @@ class Snappr: UIViewController, UIScrollViewDelegate {
         
         var startDesc = UITextView(frame: CGRectMake(20, page1.frame.size.height * 1.5 / 2.5, screenWidth - 40, page1.frame.size.height / 2.5))
         startDesc.font = UIFont(name: "Helvetica", size: 16)
-        startDesc.text = "This is where the app starts.  It allows users to add as many schedules as wanted"
+        startDesc.text = "This is where the app starts.  It allows users to add as many schedules as wanted."
         startDesc.editable = false
         page1.addSubview(startDesc)
         
@@ -87,7 +87,7 @@ class Snappr: UIViewController, UIScrollViewDelegate {
         
         var scheduleDesc = UITextView(frame: CGRectMake(20, page2.frame.size.height * 1.5 / 2.5, screenWidth - 40, page2.frame.size.height / 2.5))
         scheduleDesc.font = UIFont(name: "Helvetica", size: 16)
-        scheduleDesc.text = "This is what a schedule looks like.  It automatically stores media in the classes created based on time"
+        scheduleDesc.text = "This is what a schedule looks like.  It automatically stores photos, videos, or audio in the classes created."
         scheduleDesc.editable = false
         page2.addSubview(scheduleDesc)
         

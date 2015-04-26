@@ -52,7 +52,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.shouldUpdate = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor =[UIColor colorWithRed:0.106f green:0.694f blue:0.541f alpha:1.00f];
     [self addInit];
     self.allEducationInformationItems = [[NSMutableArray alloc]init];
     self.modalPresentationCapturesStatusBarAppearance = YES;
@@ -214,7 +214,7 @@
     backgroundImage.contentMode = UIViewContentModeScaleAspectFill;
     backgroundImage.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
 //    [backgroundImage addMotionEffect:self.backgroundEffect];
-    [educationInformation addSubview:backgroundImage];
+//    [educationInformation addSubview:backgroundImage];
     NSMutableArray *allLabels = [[NSMutableArray alloc]init];
     
     UIImageView *schoolImage= [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"teacher"]];

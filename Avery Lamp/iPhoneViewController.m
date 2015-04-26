@@ -123,7 +123,7 @@
         IconButton *icon= [self.icons objectAtIndex:i];
         icon.frame = CGRectMake(0, 0, self.screenView.frame.size.width*4 /16, self.screenView.frame.size.width*4 /16);
         icon.center = pointOfIcon;
-        icon.nameLabel.frame = CGRectMake(0, icon.frame.size.height,icon.frame.size.width ,20 );
+        icon.nameLabel.frame = CGRectMake(0, icon.frame.size.height - 3,icon.frame.size.width ,20 );
     }
     
 }

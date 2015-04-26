@@ -68,26 +68,28 @@ class SkillsScene: SKScene {
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: CGRectMake(0, 0, screenWidth, screenHeight))
         
         
-        
-        
         let radius = screenWidth / 8
-        var test =  nodeWithSkill("test", color: UIColor.greenColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
-        test.position = topLeft
-        self.addChild(test)
         
-        var java =  nodeWithSkill("Java", color: UIColor.redColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
-        java.position = topCenter
-        self.addChild(java)
+
         
-        var objectiveC =  nodeWithSkill("Objective-C", color: UIColor.greenColor(), fontSize: 40, fontColor: UIColor.blueColor(),radius: radius )
-        objectiveC.position = topRight
+        var objectiveC =  nodeWithSkill("Objective-C", color: UIColor.greenColor(), fontSize: 32, fontColor: UIColor.blueColor(),radius: radius)
+        objectiveC.position = topCenter
         self.addChild(objectiveC)
         
-        var video =  nodeWithSkill("Video", color: UIColor.blackColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
+        var swift =  nodeWithSkill("Swift", color: UIColor(red: 0.992, green: 0.333, blue: 0.898, alpha: 1.0), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
+        swift.position = topLeft
+        self.addChild(swift)
+        
+        var java =  nodeWithSkill("Java", color: UIColor.redColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
+        java.position = topRight
+        self.addChild(java)
+  
+        
+        var video =  nodeWithSkill("Video", color: UIColor.yellowColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
         video.position = middleLeft
         self.addChild(video)
         
-        var photoshop =  nodeWithSkill("Photoshop", color: UIColor.purpleColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
+        var photoshop =  nodeWithSkill("Photoshop", color: UIColor.purpleColor(), fontSize: 34, fontColor: UIColor.whiteColor(),radius: radius)
         photoshop.position = middleCenter
         self.addChild(photoshop)
         
@@ -95,17 +97,18 @@ class SkillsScene: SKScene {
         cad.position = middleRight
         self.addChild(cad)
         
-        var cad2 =  nodeWithSkill("CAD2", color: UIColor.darkGrayColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
-        cad2.position = bottomLeft
-        self.addChild(cad2)
         
-        var cad3 =  nodeWithSkill("CAD3", color: UIColor.lightGrayColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
-        cad3.position = bottomCenter
-        self.addChild(cad3)
+        var Excel =  nodeWithSkill("Excel", color: UIColor(red: 0.0, green: 0.698, blue: 0.976, alpha: 1.0), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
+        Excel.position = bottomLeft
+        self.addChild(Excel)
         
-        var cad4 =  nodeWithSkill("CAD4", color: UIColor.lightTextColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
-        cad4.position = bottomRight
-        self.addChild(cad4)
+        var Robotics =  nodeWithSkill("Robotics", color: UIColor.lightGrayColor(), fontSize: 40, fontColor: UIColor.blackColor(),radius: radius)
+        Robotics.position = bottomCenter
+        self.addChild(Robotics)
+        
+        var HTML =  nodeWithSkill("HTML", color: UIColor(red: 0.027, green: 0.055, blue: 0.361, alpha: 1.0), fontSize: 40, fontColor: UIColor.whiteColor(),radius: radius)
+        HTML.position = bottomRight
+        self.addChild(HTML)
         
         
         

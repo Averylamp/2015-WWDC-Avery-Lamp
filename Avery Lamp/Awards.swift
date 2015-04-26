@@ -63,6 +63,10 @@ import UIKit
         technology.append(["0","NJ State Robotics Champions","NJ State Robotics Champions\nTeam #8405 Millburn Robotics\nFirst Tech Challenge\nMarch, 2015"])
         technology.append(["0","Code Day NYC Best Application","Code Day NYC Best Application\nWon for my app ViewZik\nNew York City\nNY, February, 2015"])
         
+        education.append(["0","Code Day NYC Best Application","Code Day NYC Best Application\nWon for my app ViewZik\nNew York City\nNY, February, 2015"])
+        
+        squash.append(["0","Code Day NYC Best Application","Code Day NYC Best Application\nWon for my app ViewZik\nNew York City\nNY, February, 2015"])
+        
         segmentedControlChanged(UISegmentedControl())
         
         
