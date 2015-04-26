@@ -69,6 +69,7 @@ class Robotics: UIViewController {
         textView.textAlignment = NSTextAlignment.Center
         textView.font = UIFont(name: "ArialMT", size: 22)
         textView.text = "This year was our first year as a team, and we made it to the FIRST Tech Challenge World Championship, and ended up placing 13th in the world.  I am the Drive Team Coach and a strategist for our team."
+        textView.editable = false
         self.view.addSubview(textView)
         
         

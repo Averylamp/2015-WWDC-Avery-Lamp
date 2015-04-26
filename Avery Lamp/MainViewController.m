@@ -158,7 +158,7 @@
     
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"SkillsIcon"] Name:@"Skills" ViewController:nil andSplashImage:[UIImage imageNamed:@"SkillsSplash"]];
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"EducationIcon"] Name:@"Education" ViewController:nil andSplashImage:[UIImage imageNamed:@"EducationSplash"]];
-    [blueiPhone addIconWithImage:[UIImage imageNamed:@"AwardIcon"] Name:@"Awards" ViewController:nil andSplashImage:[UIImage imageNamed:@"AwardsSplash"]];
+    [blueiPhone addIconWithImage:[UIImage imageNamed:@"AwardIcon"] Name:@"Honors" ViewController:nil andSplashImage:[UIImage imageNamed:@"AwardsSplash"]];
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"ContactIcon"] Name:@"Contact" ViewController:nil andSplashImage:[UIImage imageNamed:@"ContactSplash"]];
     [blueiPhone setupView];
     
@@ -412,7 +412,7 @@
         Contact *c = [[Contact alloc]init];
         vc = c;
     }
-    if ([clickedIcon.name isEqualToString:@"Awards"]) {
+    if ([clickedIcon.name isEqualToString:@"Honors"]) {
         Awards *c = [[Awards alloc]init];
         vc = c;
     }

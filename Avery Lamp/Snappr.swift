@@ -31,7 +31,7 @@ class Snappr: UIViewController, UIScrollViewDelegate {
 
         var shortDesc = UILabel(frame: CGRectMake(10, titleImage.frame.size.height, screenWidth - 20, 200))
         shortDesc.numberOfLines = 0
-        var text = "Snappr is an organization app that integrates photos with a schedule."
+        var text = "snappr is an organization app that integrates photos with a schedule."
         shortDesc.font = UIFont(name: "Helvetica", size: 20)
         shortDesc.text  = text
         shortDesc.sizeToFit()

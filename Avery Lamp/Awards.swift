@@ -33,7 +33,7 @@ import UIKit
         self.view.backgroundColor = UIColor.whiteColor()
         
         var awardsLabel = UILabel(frame: CGRectMake(0, 0, screenWidth, 100))
-        awardsLabel.text = "Awards"
+        awardsLabel.text = "Honors"
         awardsLabel.textAlignment = NSTextAlignment.Center
         awardsLabel.font = UIFont(name: "DINAlternate-Bold", size: 50)
         self.view.addSubview(awardsLabel)
