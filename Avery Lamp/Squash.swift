@@ -52,7 +52,7 @@ class Squash: UIViewController {
         robotImage.image = UIImage(named: "Robot")
         
         
-        image = UIImage(named: "SquashIcon")
+        image = UIImage(named: "SquashCourt")
         var teamImage2 = UIImageView (frame: CGRectMake(0, screenHeight - image!.size.height * (screenWidth / image!.size.width), screenWidth, image!.size.height * (screenWidth / image!.size.width)))
         teamImage2.contentMode = UIViewContentMode.ScaleAspectFit
         teamImage2.image = image

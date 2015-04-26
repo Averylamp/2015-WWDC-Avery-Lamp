@@ -203,7 +203,7 @@
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"RoboticsIcon"] Name:@"Robotics" ViewController:nil andSplashImage:[UIImage imageNamed:@"RoboticsSplash"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"PhotographyIcon"] Name:@"Photography" ViewController:nil andSplashImage:[UIImage imageNamed:@"PhotographySplash"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"FavoritesIcon"] Name:@"Favorites" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"SquashIcon"] Name:@"Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"SquashIcon"] Name:@"Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@"SquashSplash"]];
     
     [greeniPhone setupView];
     [self.iPhones addObject:view];

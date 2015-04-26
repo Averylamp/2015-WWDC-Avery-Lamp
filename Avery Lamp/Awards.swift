@@ -60,24 +60,25 @@ import UIKit
         
         
         
-        technology.append(["0","First Tech Challenge Robotics"," First Tech Challenge Robotics\n13th Place World Champtionship April 2015\n1st Place New Jersey \nApr. 2015"])
+        technology.append(["0","First Tech Challenge Robotics"," First Tech Challenge Robotics\n13th Place World Championship April\n1st Place New Jersey March\n2014-2015 School Year"])
         
         technology.append(["0","Dream it Code it Win it","Dream it Code it Win it\nsnappr app\nNYC, NY, Apr. 2015"])
         
-        
         technology.append(["0","HackBCA, Second Place","HackBCA, Second Place\nSmith app\nThe Bergen County Academies\nNJ, Mar. 2015"])
         
-        
-        technology.append(["0","NJ State Robotics, Champion","NJ State Robotics, Champion\nFirst Tech Challenge\nMar. 2015"])
-        
         technology.append(["0","Code Day NYC, Best Application","Code Day NYC, Best Application\n ViewZik app\nNYC, NY, Feb. 2015"])
+        
+        technology.append(["0","High School Programming Contest, 2nd Place","High School Proramming Contest, 2nd Place\nBloomsburg University, Apr. 2015"])
+        
+        technology.append(["0","Philadelphia Classic, 4th Place","Philadelphia Classic, 4th Place\nProgramming Contest\nUniversity of Pennsylvania, apr. 2014"])
+        
+        technology.append(["0","High School Programming Contest, 1st Place","High School Proramming Contest, 2nd Place\nBloomsburg University, Apr. 2014"])
         
         
         
         education.append(["0","The Saint Anselm College Book Award","The Saint Anselm College Book Award\nMillburn High School, 2015"])
         
         education.append(["0","Essay contest, Winner","Essay contest, Winner\nMillburn High School, 2015"])
-        
         
         education.append(["0","USA Biology Olympiad, Semifinalist","USA Biology Olympiad, Semifinalist\n2014"])
         
@@ -97,8 +98,8 @@ import UIKit
         
         squash.append(["0","Baird E Haney Jr. Gold Championship, Finalist","Baird E Haney Jr. Gold Championship, Finalist\nSep. 2014"])
         
-        
         squash.append(["0","US Squash National Ranking, 23","US Squash National Ranking, 23\nBoys under 15 division\nDec. 2012"])
+        
         
         segmentedControlChanged(UISegmentedControl())
         
@@ -111,6 +112,7 @@ import UIKit
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
+        selectedIndicies = Array<NSIndexPath>()
         currentAwards = Array<Array<String>>()
         switch sender.selectedSegmentIndex{
         case 0:
@@ -151,21 +153,21 @@ import UIKit
         textView.editable = false
         textView.font = UIFont(name: "AmericanTypewriter", size: 14)
         
-        if (selectedIndexPath.row == indexPath.row){
-            trophyImage.frame = CGRectMake(0, 20, 40, 40)
-            textView.frame = CGRectMake(40, 0, UIScreen.mainScreen().bounds.width - 40, 80)
+        if (contains(selectedIndicies, indexPath)){
+            trophyImage.frame = CGRectMake(0, 22, 45, 45)
+            textView.frame = CGRectMake(40, 0, UIScreen.mainScreen().bounds.width - 45, 80)
             textView.text = currentAwards[indexPath.row][2] as String
             cell .addSubview(textView)
         }else{
-            trophyImage.frame = CGRectMake(0, 0, 40, 40)
-            textView.frame = CGRectMake(40, 0, UIScreen.mainScreen().bounds.width - 40, 40)
+            trophyImage.frame = CGRectMake(0, 0, 45, 45)
+            textView.frame = CGRectMake(40, 0, UIScreen.mainScreen().bounds.width - 45, 45)
             textView.text = currentAwards[indexPath.row][1] as String
             cell .addSubview(textView)
         }
         
         cell.layer.cornerRadius = 10
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor(red: 0.235, green: 0.043, blue: 0.137, alpha: 1/0).CGColor
+ //       cell.layer.borderWidth = 1
+//        cell.layer.borderColor = UIColor(red: 0.235, green: 0.043, blue: 0.137, alpha: 1/0).CGColor
         cell.layer.masksToBounds = true
         
         
@@ -174,19 +176,28 @@ import UIKit
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if(selectedIndexPath.row == indexPath.row){
+        if(contains(selectedIndicies, indexPath)){
             return 80
         }else{
-            return 40
+            return 45
         }
         
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if  contains(selectedIndicies,indexPath){
+            var index = find(selectedIndicies, indexPath)
+            selectedIndicies.removeAtIndex(index!)
+        }else{
+            selectedIndicies.append(indexPath)
+        }
+        
         selectedIndexPath = indexPath
         tableView.reloadData()
         
     }
+    var selectedIndicies:Array<NSIndexPath> = Array<NSIndexPath>()
     
     override func  prefersStatusBarHidden() -> Bool {
         return true
