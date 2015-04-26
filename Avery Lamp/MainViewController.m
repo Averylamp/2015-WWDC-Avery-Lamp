@@ -130,17 +130,17 @@
     self.view.gestureRecognizers = [[NSArray alloc]init];
     
     
-    UILabel *welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40, self.view.frame.size.width,70)];
+    UILabel *welcomeLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 10, self.view.frame.size.width,70)];
     welcomeLabel.text = @"Welcome";
     welcomeLabel.textAlignment = NSTextAlignmentCenter;
-    welcomeLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:60];
+    welcomeLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:40];
 
     [self.view addSubview:welcomeLabel];
     
-    UILabel *averyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, welcomeLabel.frame.size.height + welcomeLabel.frame.origin.y, self.view.frame.size.width,30)];
-    averyLabel.text = @"about Avery Lamp";
+    UILabel *averyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, welcomeLabel.frame.size.height + welcomeLabel.frame.origin.y, self.view.frame.size.width,40)];
+    averyLabel.text = @"Avery Lamp";
     averyLabel.textAlignment = NSTextAlignmentCenter;
-    averyLabel.font = [UIFont fontWithName:@"Helvetica" size:24];
+    averyLabel.font = [UIFont fontWithName:@"Helvetica" size:34];
     [self.view addSubview:averyLabel];
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -156,8 +156,8 @@
     blueiPhone.mainVC = self;
     
     
-    [blueiPhone addIconWithImage:[UIImage imageNamed:@"SkillsIcon"] Name:@"Skills" ViewController:nil andSplashImage:[UIImage imageNamed:@"SkillsSplash"]];
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"EducationIcon"] Name:@"Education" ViewController:nil andSplashImage:[UIImage imageNamed:@"EducationSplash"]];
+    [blueiPhone addIconWithImage:[UIImage imageNamed:@"SkillsIcon"] Name:@"Skills" ViewController:nil andSplashImage:[UIImage imageNamed:@"SkillsSplash"]];
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"AwardIcon"] Name:@"Honors" ViewController:nil andSplashImage:[UIImage imageNamed:@"AwardsSplash"]];
     [blueiPhone addIconWithImage:[UIImage imageNamed:@"ContactIcon"] Name:@"Contact" ViewController:nil andSplashImage:[UIImage imageNamed:@"ContactSplash"]];
     [blueiPhone setupView];
@@ -202,7 +202,7 @@
     
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"RoboticsIcon"] Name:@"Robotics" ViewController:nil andSplashImage:[UIImage imageNamed:@"RoboticsSplash"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"PhotographyIcon"] Name:@"Photography" ViewController:nil andSplashImage:[UIImage imageNamed:@"PhotographySplash"]];
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"FavoritesIcon"] Name:@"Favorites" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"FavoritesIcon"] Name:@"Favorites" ViewController:nil andSplashImage:[UIImage imageNamed:@"FavoritesSplash"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"SquashIcon"] Name:@"Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@"SquashSplash"]];
     
     [greeniPhone setupView];
@@ -404,8 +404,7 @@
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     if ([clickedIcon.name isEqualToString:@"Education"]) {
-        vc = [[EducationInfoViewController alloc]init];
-        
+        vc = [[EducationInfoViewController alloc]init]; 
         ((LaunchingViewController*)vc).mainVC = self;
     }
     if ([clickedIcon.name isEqualToString:@"Contact"]) {

@@ -23,7 +23,8 @@ static const uint32_t icon = 0x1 <<0;
     CGFloat screenScale = [[UIScreen mainScreen] scale];
     CGSize screenSize = CGSizeMake(screenBounds.size.width * screenScale, screenBounds.size.height * screenScale);
     self.screenSize = screenSize;
-    
+    self.view.showsFPS = NO;
+    self.view.showsNodeCount = NO;
     SKLabelNode *label = [[SKLabelNode alloc]initWithFontNamed:@"Avenir-Black"];
     label.text = @"Favorites";
     label.name = @"Welcome Label";
@@ -49,24 +50,27 @@ static const uint32_t icon = 0x1 <<0;
     
     SKNode *ObjC = [self nodeWithName:@"Objective-C" andRadius:100 andColor:[UIColor colorWithRed:0.800f green:0.820f blue:0.671f alpha:1.00f] andTextColor:[UIColor blackColor] fontSize:36];
 
-    SKNode *java = [self nodeWithName:@"Java" andRadius:100 andColor:[UIColor colorWithRed:0.325f green:0.369f blue:0.231f alpha:1.00f]andTextColor:[UIColor whiteColor]fontSize:44];
+    SKNode *java = [self nodeWithName:@"Swift" andRadius:100 andColor:[UIColor colorWithRed:0.325f green:0.369f blue:0.231f alpha:1.00f]andTextColor:[UIColor whiteColor]fontSize:44];
 
-    SKNode *videoPro = [self nodeWithName:@"Video" andRadius:80 andColor:[UIColor colorWithRed:0.518f green:0.173f blue:0.090f alpha:1.00f]andTextColor:[UIColor whiteColor]fontSize:40];
+    SKNode *videoPro = [self nodeWithName:@"Ansel Adams" andRadius:100 andColor:[UIColor colorWithRed:0.518f green:0.173f blue:0.090f alpha:1.00f]andTextColor:[UIColor whiteColor]fontSize:34];
 
-    SKNode *photography = [self nodeWithName:@"Photography" andRadius:75 andColor:[UIColor colorWithRed:0.235f green:0.043f blue:0.137f alpha:1.00f] andTextColor:[UIColor whiteColor]fontSize:26];
+    SKNode *photography = [self nodeWithName:@"Queen" andRadius:75 andColor:[UIColor colorWithRed:0.235f green:0.043f blue:0.137f alpha:1.00f] andTextColor:[UIColor whiteColor]fontSize:30];
 
-    SKNode *squash = [self nodeWithName:@"Squash" andRadius:130 andColor:[UIColor colorWithRed:0.902f green:0.557f blue:0.220f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:50];
+    SKNode *squash = [self nodeWithName:@"Five Guys" andRadius:130 andColor:[UIColor colorWithRed:0.902f green:0.557f blue:0.220f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:50];
 
-    SKNode *bassoon = [self nodeWithName:@"Bassoon" andRadius:70 andColor:[UIColor colorWithRed:0.239f green:0.710f blue:0.835f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:34];
+    SKNode *bassoon = [self nodeWithName:@"Caramel" andRadius:70 andColor:[UIColor colorWithRed:0.239f green:0.710f blue:0.835f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:34];
 
-    SKNode *cad = [self nodeWithName:@"CAD" andRadius:70 andColor:[UIColor colorWithRed:0.788f green:0.722f blue:0.631f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:34];
+    SKNode *cad = [self nodeWithName:@"Bassoon" andRadius:70 andColor:[UIColor colorWithRed:0.788f green:0.722f blue:0.631f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:34];
 
-    SKNode *robotics = [self nodeWithName:@"Robotics" andRadius:90 andColor:[UIColor colorWithRed:0.451f green:0.663f blue:0.392f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:38];
+    SKNode *robotics = [self nodeWithName:@"Apple" andRadius:90 andColor:[UIColor colorWithRed:0.451f green:0.663f blue:0.392f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:38];
+    
+    SKNode *yankees = [self nodeWithName:@"Yankees" andRadius:90 andColor:[UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.00f]andTextColor:[UIColor blackColor] fontSize:38];
     
     [self addChild:robotics];
     [self addChild:java];
     [self addChild:cad];
     [self addChild:videoPro];
+    [self addChild:yankees];
     [self addChild:photography];
     [self addChild:bassoon];
     [self addChild:squash];

@@ -47,7 +47,7 @@
 
 @implementation EducationInfoViewController
 
-#pragma mark - ViewDidLoad and extras
+#pragma mark - ViewDidLoad and extras r
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -280,10 +280,15 @@
         label.tag = 2;
         label.textAlignment = NSTextAlignmentCenter;
         [label addMotionEffect:self.foregroundEffect];
+        [self.allEducationInformationItems addObject:label];
     }
-    [self.allEducationInformationItems addObjectsFromArray:allLabels];
     
-    MKMapView *homeMapView= [[MKMapView alloc]initWithFrame:CGRectMake(15, 355, educationInformation.frame.size.width-30, educationInformation.frame.size.height - 355-30)];
+    
+//    MKMapView *homeMapView= [[MKMapView alloc]initWithFrame:CGRectMake(15, 355, educationInformation.frame.size.width-30, educationInformation.frame.size.height - 355-30)];
+    
+    //Crashes strangely on my dad's iphone 6
+    MKMapView *homeMapView= [[ MKMapView alloc]init];
+    homeMapView.frame = CGRectMake(15, 355, educationInformation.frame.size.width-30, educationInformation.frame.size.height - 355-30);
     homeMapView.tag = 3;
     [self.allEducationInformationItems addObject:homeMapView];
     for (UIView *view in self.allEducationInformationItems) {

@@ -10,7 +10,7 @@ import UIKit
 
 @objc class Awards: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
-    var tableView = UITableView(frame: CGRectMake(0, 150, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height - 100))
+    var tableView = UITableView(frame: CGRectMake(0, 150, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height - 150))
     
     var segmentedControl = UISegmentedControl()
 
@@ -23,6 +23,7 @@ import UIKit
     var technology = Array<[String]>()
     var education = Array<[String]>()
     var squash = Array<[String]>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,45 +61,53 @@ import UIKit
         
         
         
-        technology.append(["0","First Tech Challenge Robotics"," First Tech Challenge Robotics\n13th Place World Championship April\n1st Place New Jersey March\n2014-2015 School Year"])
         
-        technology.append(["0","Dream it Code it Win it","Dream it Code it Win it\nsnappr app\nNYC, NY, Apr. 2015"])
+        technology.append(["0","First Tech Challenge Robotics"," First Tech Challenge Robotics\n13th Place World Championship\nSt. Louis, MO, Apr. 2015"])
         
-        technology.append(["0","HackBCA, Second Place","HackBCA, Second Place\nSmith app\nThe Bergen County Academies\nNJ, Mar. 2015"])
-        
-        technology.append(["0","Code Day NYC, Best Application","Code Day NYC, Best Application\n ViewZik app\nNYC, NY, Feb. 2015"])
-        
-        technology.append(["0","High School Programming Contest, 2nd Place","High School Proramming Contest, 2nd Place\nBloomsburg University, Apr. 2015"])
-        
-        technology.append(["0","Philadelphia Classic, 4th Place","Philadelphia Classic, 4th Place\nProgramming Contest\nUniversity of Pennsylvania, apr. 2014"])
-        
-        technology.append(["0","High School Programming Contest, 1st Place","High School Proramming Contest, 2nd Place\nBloomsburg University, Apr. 2014"])
+        technology.append(["0","First Tech Challenge Robotics"," First Tech Challenge Robotics\n1st Place in New Jersey\nLivingston, NJ, Mar. 2015"])
         
         
         
-        education.append(["0","The Saint Anselm College Book Award","The Saint Anselm College Book Award\nMillburn High School, 2015"])
+        technology.append(["0","Dream it Code it Win it, Award","Dream it Code it Win it, Award\nSnappr app\nNY, NY, Apr. 2015"])
         
-        education.append(["0","Essay contest, Winner","Essay contest, Winner\nMillburn High School, 2015"])
+        technology.append(["0","HackBCA, 2nd Place","HackBCA, 2nd Place\nSmith app\nThe Bergen County Academies\nHackensack, NJ, Mar. 2015"])
+        
+        
+        technology.append(["0","Code Day NYC, Best Application","Code Day NYC, Best Application\nViewZik app\nNY, NY, Feb. 2015"])
+        
+        technology.append(["0","High School Programming Contest, 2nd Place","High School Proramming Contest, 2nd Place\nBloomsburg University\nBloomsburg, PA, Apr. 2015"])
+        
+        technology.append(["0","Philadelphia Classic, 4th Place","Philadelphia Classic, 4th Place\nProgramming Contest\nUniversity of Pennsylvania\nPhiladelphia, PA, Apr. 2014"])
+        
+        technology.append(["0","High School Programming Contest, 1st Place","High School Programming Contest, 1st Place\nBloomsburg University\nBloomsburg,PA, Apr. 2014"])
+        
+        
+        
+        education.append(["0","The Saint Anselm College Book Award","The Saint Anselm College Book Award\nTop 24 students in\nMillburn High School\nMillburn, NJ, 2015"])
+        
+        education.append(["0","Essay Contest, Winner","Essay contest, Winner\nMillburn High School\nMillburn, NJ, 2015"])
+        
         
         education.append(["0","USA Biology Olympiad, Semifinalist","USA Biology Olympiad, Semifinalist\n2014"])
         
-        education.append(["0","USA Computing Olympiad, Silver division","USA Computing Olympiad, Silver\n2014"])
+        education.append(["0","USA Computing Olympiad, Silver division","USA Computing Olympiad, Silver Division\n2014"])
         
-        education.append(["0","Princeton Engineering Olympiad, Second Place","Princeton Engineering Olympiad, Second Place\nPrinceton University, 2014"])
+        education.append(["0","Princeton Engineering Olympiad, 2nd Place","Princeton Engineering Olympiad, 2nd Place\nPrinceton University\nPrinceton, NJ, Mar. 2014"])
         
         
         
-        squash.append(["0","US Squash National Ranking, 12","US Squash National Ranking, 12\nBoys under 17 division\nDec. 2014"])
+        squash.append(["0","US Squash National Ranking, 12","US Squash National Ranking, 12\nHighest Rank of 12th in the U.S.\nBoys Under 17 Division\nDec. 2014"])
         
         squash.append(["0","US Squash Scholar-Athlete Award","US Squash Scholar-Athlete Award\n2014, 2013"])
         
-        squash.append(["0","Virginia Jr. Gold tournament, Winner","Virginia Jr. Gold tournament, Winner\nNov. 2014"])
+        squash.append(["0","Virginia Jr. Gold tournament, Winner","Virginia Jr. Gold tournament, Winner\nCharlottesville, VA, Nov. 2014"])
         
-        squash.append(["0","Groton Gold tournament, Finalist","Groton Gold tournament, Finalist\nNov. 2014"])
+        squash.append(["0","Groton Gold tournament, Finalist","Groton Gold tournament, Finalist\nGroton, MA, Nov. 2014"])
         
-        squash.append(["0","Baird E Haney Jr. Gold Championship, Finalist","Baird E Haney Jr. Gold Championship, Finalist\nSep. 2014"])
+        squash.append(["0","Baird E Haney Jr. Gold Championship, Finalist","Baird E Haney Jr. Gold Championship, Finalist\nNY, NY, Sep. 2014"])
         
-        squash.append(["0","US Squash National Ranking, 23","US Squash National Ranking, 23\nBoys under 15 division\nDec. 2012"])
+        
+        squash.append(["0","US Squash National Ranking, 23","US Squash National Ranking, 23\nHighest Rank of 23rd in the U.S.\nBoys Under 15 Division\nDec. 2012"])
         
         
         segmentedControlChanged(UISegmentedControl())

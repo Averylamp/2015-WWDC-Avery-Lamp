@@ -66,6 +66,7 @@ class Squash: UIViewController {
         var quoteLabel = UILabel(frame: CGRectMake(0, teamImage.frame.size.height + teamImage.frame.origin.y, screenWidth, 40))
         quoteLabel.font = UIFont(name: "Arial-BoldMT", size: 24)
         quoteLabel.text  = "Squash is music - G. Amir"
+        quoteLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(quoteLabel)
         
         
