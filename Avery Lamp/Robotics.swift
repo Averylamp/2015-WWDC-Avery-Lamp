@@ -19,9 +19,11 @@ class Robotics: UIViewController {
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         
-        var exitButton = UIButton(frame: CGRectMake(screenWidth-60, 0, 60, 60))
-        exitButton.backgroundColor = UIColor.redColor()
+        var exitButton = UIButton(frame: CGRectMake(screenWidth-60, 20, 40, 40))
+        //        exitButton.backgroundColor = UIColor.redColor()
+        exitButton.setBackgroundImage(UIImage(named: "exitButton"), forState: UIControlState.Normal)
         exitButton.addTarget(self, action: "ExitVC", forControlEvents:UIControlEvents.TouchUpInside)
+        self.view.addSubview(exitButton)
         
         var image = UIImage(named: "Robotics Team")
         var teamImage = UIImageView (frame: CGRectMake(0, 0, screenWidth, image!.size.height * (screenWidth / image!.size.width)))
@@ -50,8 +52,27 @@ class Robotics: UIViewController {
         robotImage.image = UIImage(named: "Robot")
         
         
+        image = UIImage(named: "Robotics Team2")
+        var teamImage2 = UIImageView (frame: CGRectMake(0, screenHeight - image!.size.height * (screenWidth / image!.size.width), screenWidth, image!.size.height * (screenWidth / image!.size.width)))
+        teamImage2.contentMode = UIViewContentMode.ScaleAspectFit
+        teamImage2.image = image
         
-        var textView = UITextView(frame: CGRectMake(0, 190, screenWidth, screenHeight ))
+        teamImage2.layer.masksToBounds = true
+        
+        self.view.addSubview(teamImage2)
+        
+        
+
+        
+        
+        var textView = UITextView(frame: CGRectMake(0, teamImage.frame.size.height + teamImage.frame.origin.y, screenWidth, screenHeight - teamImage.frame.size.height - teamImage2.frame.size.height))
+        textView.textAlignment = NSTextAlignment.Center
+        textView.font = UIFont(name: "ArialMT", size: 22)
+        textView.text = "This year was our first year as a team, and we made it to the FIRST Tech Challenge World Championship, and ended up placing 13th in the world.  I am the Drive Team Coach and a strategist for our team."
+        self.view.addSubview(textView)
+        
+        
+        
         
         
         

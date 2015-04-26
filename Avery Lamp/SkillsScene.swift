@@ -22,8 +22,9 @@ class SkillsScene: SKScene {
         let screenWidth = screenSize.width * scale
         let screenHeight = screenSize.height * scale
         
-        var exitButton = UIButton(frame: CGRectMake(screenWidth/2-60, 0, 60, 60))
-        exitButton.backgroundColor = UIColor.redColor()
+        var exitButton = UIButton(frame: CGRectMake((screenWidth)/2 - 60, 20, 40, 40))
+        //        exitButton.backgroundColor = UIColor.redColor()
+        exitButton.setBackgroundImage(UIImage(named: "exitButton"), forState: UIControlState.Normal)
         exitButton.addTarget(self, action: "ExitVC", forControlEvents:UIControlEvents.TouchUpInside)
         self.view?.addSubview(exitButton)
         

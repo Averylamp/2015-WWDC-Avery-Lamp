@@ -77,11 +77,11 @@
     
     
     
-    UILabel *myInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, svWidth, 80)];
+    UILabel *myInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, svWidth - 60, 80)];
     myInfoLabel.attributedText = [[NSAttributedString alloc]initWithString:@"Education" attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Avenir-Black" size:60],NSShadowAttributeName:shadow}];
     [myInfoLabel addMotionEffect:self.foregroundEffect];
     myInfoLabel.font = [UIFont fontWithName:@"Avenir-Black" size:50];
-    myInfoLabel.textAlignment = NSTextAlignmentLeft;
+    myInfoLabel.textAlignment = NSTextAlignmentCenter;
     myInfoLabel.alpha = 0;
 
 

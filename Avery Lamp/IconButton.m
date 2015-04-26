@@ -35,7 +35,28 @@
         
         
         [self setBackgroundImage:image forState:UIControlStateNormal];
-        [self setBackgroundImage:[IconButton colorizeImage:image withColor:[UIColor lightGrayColor]] forState:UIControlStateHighlighted];
+        
+        
+        
+        inputImage = [IconButton colorizeImage:image withColor:[UIColor lightGrayColor]];
+         maskRef = [UIImage imageNamed:@"AppIconMask"].CGImage;
+        
+         mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+                                            CGImageGetHeight(maskRef),
+                                            CGImageGetBitsPerComponent(maskRef),
+                                            CGImageGetBitsPerPixel(maskRef),
+                                            CGImageGetBytesPerRow(maskRef),
+                                            CGImageGetDataProvider(maskRef), NULL, false);
+        
+         masked = CGImageCreateWithMask([inputImage CGImage], mask);
+        CGImageRelease(mask);
+        
+         maskedImage = [UIImage imageWithCGImage:masked];
+        
+        CGImageRelease(masked);
+        
+        
+        [self setBackgroundImage:maskedImage forState:UIControlStateHighlighted];
         self.iconImage = image;
         self.splashScreen = splashImage;
     }

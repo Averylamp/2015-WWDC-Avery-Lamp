@@ -29,7 +29,7 @@ import UIKit
         
         var titleLabel = UILabel(frame: CGRectMake(0, 20, screenWidth, 60))
         titleLabel.text = "Photography"
-        titleLabel.font = UIFont(name: "ArialMT", size: 28)
+        titleLabel.font = UIFont(name: "Arial-BoldMT", size: 28)
         titleLabel.textAlignment = NSTextAlignment.Center
         self.view.addSubview(titleLabel)
         
@@ -41,6 +41,7 @@ import UIKit
         self.view.addSubview(visit)
         
         var facebookLink = UIButton(frame: CGRectMake(15, screenHeight - 50, screenWidth-30, 30))
+        facebookLink.tag = 999990
         facebookLink.backgroundColor = UIColor(red: 0.227, green: 0.341, blue: 0.584, alpha: 1.0)
         facebookLink.setTitle("Avery Lamp Photography", forState: UIControlState.Normal)
         facebookLink.layer.cornerRadius = 10
@@ -67,18 +68,22 @@ import UIKit
         segmentScroll.addSubview(segmentedControl)
         
         var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        self.swipe1 = swipeRecognizer
         swipeRecognizer.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeRecognizer)
         swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipe:")
+        self.swipe2  = swipeRecognizer
         swipeRecognizer.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRecognizer)
         
         segmentedControlChanged(UISegmentedControl())
         
-        var exitButton = UIButton(frame: CGRectMake(screenWidth-60, 0, 60, 60))
-        exitButton.backgroundColor = UIColor.redColor()
+        var exitButton = UIButton(frame: CGRectMake(screenWidth-60, 20, 40, 40))
+        //        exitButton.backgroundColor = UIColor.redColor()
+        exitButton.setBackgroundImage(UIImage(named: "exitButton"), forState: UIControlState.Normal)
         exitButton.addTarget(self, action: "ExitVC", forControlEvents:UIControlEvents.TouchUpInside)
         self.view.addSubview(exitButton)
+        
         self.numberLabel = UILabel(frame: CGRectMake(0, 180 + screenWidth - 30, screenWidth, 30))
         numberLabel.font = UIFont(name: "ArialMT", size: 16)
         numberLabel.textAlignment = NSTextAlignment.Center
@@ -91,6 +96,8 @@ import UIKit
         })
     }
     
+    var swipe1 = UISwipeGestureRecognizer()
+    var swipe2 = UISwipeGestureRecognizer()
     var numberLabel = UILabel()
     
     func facebookLinkClicked(){
@@ -138,7 +145,7 @@ import UIKit
         }
         arrIndex = 0
         
-        animateLeftToUIImageView(currentImages[arrIndex])
+        animateLeftToUIImageView(currentImages[arrIndex]!)
     }
     
     var animatingView = false
@@ -244,26 +251,38 @@ import UIKit
             println("Right")
             if (self.arrIndex > 0){
                 self.arrIndex  = self.arrIndex - 1
-                animateRightToUIImageView(currentImages[arrIndex])
+                animateRightToUIImageView(currentImages[arrIndex]!)
             }
         }
         if(gesture.direction == UISwipeGestureRecognizerDirection.Left){
             println("Left")
             if (self.arrIndex < self.currentImages.count-1){
                 self.arrIndex  = self.arrIndex + 1
-                animateLeftToUIImageView(currentImages[arrIndex])
+                animateLeftToUIImageView(currentImages[arrIndex]!)
             }
         }
     }
     
     var arrIndex = 0
-    var currentImages = [UIImageView]()
+    var currentImages = [UIImageView?]()
     
     override func  prefersStatusBarHidden() -> Bool {
         return true
     }
     
     func ExitVC(){
+        for view in self.view.subviews{
+            if view is UIView{
+                view.removeFromSuperview()
+                if view.tag == 999990{
+                    view.removeTarget(self, action: "facebookLinkClicked", forControlEvents: UIControlEvents.TouchUpInside)
+                }
+            }
+        }
+        self.view.removeGestureRecognizer(swipe1)
+        self.view.removeGestureRecognizer(swipe2)
+        
+        currentImages = Array<UIImageView>()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

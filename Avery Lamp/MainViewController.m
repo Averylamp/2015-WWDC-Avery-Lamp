@@ -150,10 +150,10 @@
     blueiPhone.mainVC = self;
     
     
-    [blueiPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Skills" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
-    [blueiPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Education" ViewController:nil andSplashImage:nil];
-    [blueiPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Awards" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
-    [blueiPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Contact" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
+    [blueiPhone addIconWithImage:[UIImage imageNamed:@"SkillsIcon"] Name:@"Skills" ViewController:nil andSplashImage:[UIImage imageNamed:@"SkillsSplash"]];
+    [blueiPhone addIconWithImage:[UIImage imageNamed:@"EducationIcon"] Name:@"Education" ViewController:nil andSplashImage:[UIImage imageNamed:@"EducationSplash"]];
+    [blueiPhone addIconWithImage:[UIImage imageNamed:@"AwardIcon"] Name:@"Awards" ViewController:nil andSplashImage:[UIImage imageNamed:@"AwardsSplash"]];
+    [blueiPhone addIconWithImage:[UIImage imageNamed:@"ContactIcon"] Name:@"Contact" ViewController:nil andSplashImage:[UIImage imageNamed:@"ContactSplash"]];
     [blueiPhone setupView];
     
     
@@ -176,7 +176,7 @@
                   andSplashImage:[UIImage imageNamed:@"SnapprSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"ViewZik" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [pinkiPhone addIconWithImage:[UIImage imageNamed:@"SmithIcon"] Name:@"Smith" ViewController:nil andSplashImage:[UIImage imageNamed:@"SmithSplashScreen"]];
-    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Quiz USA" ViewController:nil andSplashImage:[UIImage imageNamed:@"QuizUSASplashScreen"]];
+    [pinkiPhone addIconWithImage:[UIImage imageNamed:@"USSquashIcon"] Name:@"U.S. Squash" ViewController:nil andSplashImage:[UIImage imageNamed:@"USSquashSplashScreen"]];
     
     
     
@@ -190,13 +190,13 @@
     self.rightiPhone = view;
     //    [self animateToRightView:view];
     
-    iPhoneViewController*greeniPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"GreeniPhone5c"] withView:view andBackground:[UIImage imageNamed:@"Lighthouse"]];
+    iPhoneViewController*greeniPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"GreeniPhone5c"] withView:view andBackground:[UIImage imageNamed:@"greeniPhoneCBackground"]];
     greeniPhone.delegate = self;
     greeniPhone.mainVC = self;
     
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"QuizUSAIcon"] Name:@"Robotics" ViewController:nil andSplashImage:[UIImage imageNamed:@""]];
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"SnapprIcon"] Name:@"Photography" ViewController:nil andSplashImage:nil];
-    [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Favorites" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"RoboticsIcon"] Name:@"Robotics" ViewController:nil andSplashImage:[UIImage imageNamed:@"RoboticsSplash"]];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"PhotographyIcon"] Name:@"Photography" ViewController:nil andSplashImage:nil];
+    [greeniPhone addIconWithImage:[UIImage imageNamed:@"FavoritesIcon"] Name:@"Favorites" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     [greeniPhone addIconWithImage:[UIImage imageNamed:@"ViewZikIcon"] Name:@"Coding" ViewController:nil andSplashImage:[UIImage imageNamed:@"ViewZikSplashScreen"]];
     
     [greeniPhone setupView];
@@ -308,6 +308,8 @@
 }
 
 -(void)animateUpToiPhone:(UIView *)iPhone {
+    self.switchingiPhoneAnimation = YES;
+    
     iPhone.center = CGPointMake(self.screenSize.width/2, self.screenSize.height * 2.0);
     iPhone.transform = CGAffineTransformIdentity;
     [UIView animateWithDuration:self.swipeAnimationTime delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -391,13 +393,14 @@
 }
 
 -(void)openIconVCWithIconButton:(IconButton*)clickedIcon{
-    LaunchingViewController *vc;
+    UIViewController *vc;
     
     vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     if ([clickedIcon.name isEqualToString:@"Education"]) {
         vc = [[EducationInfoViewController alloc]init];
-        vc.mainVC = self;
+        
+        ((LaunchingViewController*)vc).mainVC = self;
     }
     if ([clickedIcon.name isEqualToString:@"Contact"]) {
         Contact *c = [[Contact alloc]init];
@@ -417,6 +420,18 @@
     }
     if ([clickedIcon.name isEqualToString:@"Snappr"]) {
         Snappr *c = [[Snappr alloc]init];
+        vc = c;
+    }
+    if ([clickedIcon.name isEqualToString:@"ViewZik"]) {
+        ViewZik *c = [[ViewZik alloc]init];
+        vc = c;
+    }
+    if ([clickedIcon.name isEqualToString:@"Smith"]) {
+        Smith *c = [[Smith alloc]init];
+        vc = c;
+    }
+    if ([clickedIcon.name isEqualToString:@"U.S. Squash"]) {
+        USSquash *c = [[USSquash alloc]init];
         vc = c;
     }
     if ([clickedIcon.name isEqualToString:@"Skills"]||[clickedIcon.name isEqualToString:@"Favorites"]) {

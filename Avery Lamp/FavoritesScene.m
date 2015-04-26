@@ -72,7 +72,7 @@ static const uint32_t icon = 0x1 <<0;
     [self addChild:squash];
     [self addChild:ObjC];
     
-    UIButton *quitButton = [[UIButton alloc]initWithFrame:CGRectMake(screenSize.width - 60, 20, 40,40 )];
+    UIButton *quitButton = [[UIButton alloc]initWithFrame:CGRectMake(screenSize.width / 2 - 60, 20, 40,40 )];
     [quitButton setBackgroundImage:[UIImage imageNamed:@"exitButton"] forState:UIControlStateNormal];
     [quitButton addTarget:self action:@selector(exitVC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:quitButton];

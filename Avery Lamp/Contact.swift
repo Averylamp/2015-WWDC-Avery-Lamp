@@ -29,8 +29,9 @@ import UIKit
         self.view.addSubview(titleLabel)
         fadeItems.append(titleLabel)
         
-        var exitButton = UIButton(frame: CGRectMake(screenWidth-60, 0, 60, 60))
-        exitButton.backgroundColor = UIColor.redColor()
+        var exitButton = UIButton(frame: CGRectMake(screenWidth-60, 20, 40, 40))
+        //        exitButton.backgroundColor = UIColor.redColor()
+        exitButton.setBackgroundImage(UIImage(named: "exitButton"), forState: UIControlState.Normal)
         exitButton.addTarget(self, action: "ExitVC", forControlEvents:UIControlEvents.TouchUpInside)
         self.view.addSubview(exitButton)
         
@@ -160,7 +161,7 @@ import UIKit
 class Colors {
     let colorMiddle = UIColor(red: 189.0/255.0, green: 240.0/255.0, blue: 247.0/255.0, alpha: 1.0).CGColor
     let colorTop = UIColor(red: 142.0/255.0, green: 192.0/255.0, blue: 215.0/255.0, alpha: 1.0).CGColor
-    let colorBottom = UIColor(red: 100.0/255.0, green: 100.0/255.0, blue: 100.0/255.0, alpha: 1.0).CGColor
+    let colorBottom = UIColor(red: 160.0/255.0, green: 160.0/255.0, blue: 160.0/255.0, alpha: 1.0).CGColor
     
     let gl: CAGradientLayer
     
