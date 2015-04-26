@@ -23,9 +23,9 @@ import UIKit
         view.layer.insertSublayer(backgroundLayer, atIndex: 0)
         
         var titleLabel = UILabel(frame: CGRectMake(0, 70, screenWidth, 50))
-        titleLabel.text = "My Contact Information"
+        titleLabel.text = "Contact"
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.font = UIFont(name: "ArialMT", size: 28)
+        titleLabel.font = UIFont(name: "ArialMT", size: 45)
         self.view.addSubview(titleLabel)
         fadeItems.append(titleLabel)
         
@@ -95,9 +95,17 @@ import UIKit
         for i in 1...3{
             var button = UIButton(frame: CGRectMake(0, 0, screenWidth/4, screenWidth/4))
             var j = Double(i - 2) * 20
+            if i==1{
+                button.setBackgroundImage(UIImage(named: "facebookIcon"), forState: UIControlState.Normal)
+            }else if i==2{
+                button.setBackgroundImage(UIImage(named: "githubIcon"), forState: UIControlState.Normal)
+            }else if i==3{
+                button.setBackgroundImage(UIImage(named: "twitterIcon"), forState: UIControlState.Normal)
+            }
             button.center = CGPointMake( CGFloat((Double(screenWidth) * Double(i) / 4.0) + j) , address.frame.origin.y + 150)
-            button.backgroundColor = UIColor.greenColor()
+//            button.backgroundColor = UIColor.greenColor()
             button.layer.cornerRadius = screenWidth/8
+            button.layer.masksToBounds = true
             button.tag = i
             button.addTarget(self, action: "openLink:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addSubview(button)

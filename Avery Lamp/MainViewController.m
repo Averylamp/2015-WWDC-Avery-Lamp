@@ -145,7 +145,7 @@
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(15, screenSize.height, screenSize.width -30, (screenSize.width - 30) *532.0 /254.0)];
     [self.view addSubview:view];
     self.currentiPhone = view;
-    iPhoneViewController *blueiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"BlueiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"Deck"]];
+    iPhoneViewController *blueiPhone = [[iPhoneViewController alloc]initWithImage:[UIImage imageNamed:@"BlueiPhone5c"] withView:view andBackground:[UIImage imageNamed:@"spaceBackground"]];
     blueiPhone.delegate =self;
     blueiPhone.mainVC = self;
     
@@ -428,6 +428,7 @@
         
         if ([clickedIcon.name isEqualToString:@"Skills"]) {
             SkillsScene *scene = [SkillsScene unarchiveFromFile:@"MyScene"];
+            scene.VC = sceneVC;
             skView.showsFPS = NO;
             skView.showsNodeCount = NO;
             sceneVC.scene = scene;
