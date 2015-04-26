@@ -8,7 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "iPhoneViewController.h"
-@interface SkillsScene : SKScene
+@interface FavoritesScene : SKScene
 
 @property UIViewController *VC;
 @property iPhoneViewController *iPhoneVC;

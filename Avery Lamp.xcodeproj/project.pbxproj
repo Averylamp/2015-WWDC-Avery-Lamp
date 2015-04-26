@@ -10,6 +10,7 @@
 		BB2BD8241AE8A3910089E47A /* BackgroundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */; };
 		BB2BD8261AE8A3A30089E47A /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2BD8251AE8A3A30089E47A /* bokeh.png */; };
 		BB3564271AEA029A00A1BECD /* Photography.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3564261AEA029A00A1BECD /* Photography.swift */; };
+		BB4010BA1AEC660200A5B5F8 /* SkillsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4010B91AEC660200A5B5F8 /* SkillsScene.swift */; };
 		BB57B3261AEBF5B1006FEB62 /* Snappr.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB57B3251AEBF5B1006FEB62 /* Snappr.swift */; };
 		BB57F4E11AE3489F00437B84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E01AE3489F00437B84 /* main.m */; };
 		BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F4E31AE3489F00437B84 /* AppDelegate.m */; };
@@ -23,7 +24,7 @@
 		BB57F5141AE348BE00437B84 /* LaunchingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F50B1AE348BE00437B84 /* LaunchingViewController.m */; };
 		BB57F5151AE348BE00437B84 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F50D1AE348BE00437B84 /* MainViewController.m */; };
 		BB57F5161AE348BE00437B84 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BB57F50E1AE348BE00437B84 /* MyScene.sks */; };
-		BB57F5171AE348BE00437B84 /* SkillsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F5101AE348BE00437B84 /* SkillsScene.m */; };
+		BB57F5171AE348BE00437B84 /* FavoritesScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F5101AE348BE00437B84 /* FavoritesScene.m */; };
 		BB57F51B1AE348EA00437B84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F51A1AE348EA00437B84 /* ViewController.m */; };
 		BB57F5201AE3492B00437B84 /* PRTween.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F51D1AE3492B00437B84 /* PRTween.m */; };
 		BB57F5211AE3492B00437B84 /* PRTweenTimingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57F51F1AE3492B00437B84 /* PRTweenTimingFunctions.m */; };
@@ -49,6 +50,7 @@
 		BB2BD8231AE8A3910089E47A /* BackgroundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundParticle.sks; sourceTree = "<group>"; };
 		BB2BD8251AE8A3A30089E47A /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		BB3564261AEA029A00A1BECD /* Photography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photography.swift; sourceTree = "<group>"; };
+		BB4010B91AEC660200A5B5F8 /* SkillsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsScene.swift; sourceTree = "<group>"; };
 		BB57B3251AEBF5B1006FEB62 /* Snappr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snappr.swift; sourceTree = "<group>"; };
 		BB57F4DB1AE3489F00437B84 /* Avery Lamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avery Lamp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB57F4DF1AE3489F00437B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,8 +74,8 @@
 		BB57F50C1AE348BE00437B84 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		BB57F50D1AE348BE00437B84 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		BB57F50E1AE348BE00437B84 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
-		BB57F50F1AE348BE00437B84 /* SkillsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillsScene.h; sourceTree = "<group>"; };
-		BB57F5101AE348BE00437B84 /* SkillsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillsScene.m; sourceTree = "<group>"; };
+		BB57F50F1AE348BE00437B84 /* FavoritesScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesScene.h; sourceTree = "<group>"; };
+		BB57F5101AE348BE00437B84 /* FavoritesScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesScene.m; sourceTree = "<group>"; };
 		BB57F5191AE348EA00437B84 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BB57F51A1AE348EA00437B84 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BB57F51C1AE3492B00437B84 /* PRTween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTween.h; sourceTree = "<group>"; };
@@ -188,8 +190,9 @@
 				BB57F5041AE348BE00437B84 /* EducationInfoViewController.h */,
 				BB57F5051AE348BE00437B84 /* EducationInfoViewController.m */,
 				BB57F50E1AE348BE00437B84 /* MyScene.sks */,
-				BB57F50F1AE348BE00437B84 /* SkillsScene.h */,
-				BB57F5101AE348BE00437B84 /* SkillsScene.m */,
+				BB57F50F1AE348BE00437B84 /* FavoritesScene.h */,
+				BB57F5101AE348BE00437B84 /* FavoritesScene.m */,
+				BB4010B91AEC660200A5B5F8 /* SkillsScene.swift */,
 				BB57F52A1AE34B3100437B84 /* Contact.swift */,
 				BBE9BD961AE8B9A200DE1788 /* Awards.swift */,
 				BB3564261AEA029A00A1BECD /* Photography.swift */,
@@ -262,6 +265,7 @@
 				TargetAttributes = {
 					BB57F4DA1AE3489F00437B84 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 9XWYL3K4YT;
 					};
 					BB57F4F31AE3489F00437B84 = {
 						CreatedOnToolsVersion = 6.3;
@@ -320,7 +324,8 @@
 				BB9C2D441AEB60AC002BB525 /* Robotics.swift in Sources */,
 				BB3564271AEA029A00A1BECD /* Photography.swift in Sources */,
 				BB57F51B1AE348EA00437B84 /* ViewController.m in Sources */,
-				BB57F5171AE348BE00437B84 /* SkillsScene.m in Sources */,
+				BB57F5171AE348BE00437B84 /* FavoritesScene.m in Sources */,
+				BB4010BA1AEC660200A5B5F8 /* SkillsScene.swift in Sources */,
 				BB57F4E41AE3489F00437B84 /* AppDelegate.m in Sources */,
 				BB57F5211AE3492B00437B84 /* PRTweenTimingFunctions.m in Sources */,
 				BB57F4E11AE3489F00437B84 /* main.m in Sources */,

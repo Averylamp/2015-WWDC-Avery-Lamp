@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 Avery Lamp. All rights reserved.
 //
 
-#import "SkillsScene.h"
+#import "FavoritesScene.h"
 #import <CoreMotion/CoreMotion.h>
 
-@interface SkillsScene()
+@interface FavoritesScene()
 @property CGSize screenSize;
 @property CMMotionManager*motionManager;
 @end
 
 static const uint32_t icon = 0x1 <<0;
 
-@implementation SkillsScene
+@implementation FavoritesScene
 
 -(void)didMoveToView:(SKView *)view{
     CGRect screenBounds = [[UIScreen mainScreen] bounds];

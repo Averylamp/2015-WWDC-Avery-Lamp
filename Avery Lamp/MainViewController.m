@@ -12,7 +12,7 @@
 #import "Avery_Lamp-Swift.h"
 #import "ViewController.h"
 #import "EducationInfoViewController.h"
-#import "SkillsScene.h"
+#import "FavoritesScene.h"
 
 
 //Favorites
@@ -426,7 +426,7 @@
         skView.backgroundColor = [UIColor whiteColor];
         
         if ([clickedIcon.name isEqualToString:@"Skills"]) {
-            SkillsScene *scene = [SkillsScene unarchiveFromFile:@"MyScene"];
+            FavoritesScene *scene = [FavoritesScene unarchiveFromFile:@"MyScene"];
             skView.showsFPS = NO;
             skView.showsNodeCount = NO;
             sceneVC.scene = scene;

@@ -8,7 +8,7 @@
 
 #import "iPhoneViewController.h"
 #import "ViewController.h"
-#import "SkillsScene.h"
+#import "FavoritesScene.h"
 #import "EducationInfoViewController.h"
 #import "LaunchingViewController.h"
 
