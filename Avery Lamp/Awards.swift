@@ -54,18 +54,51 @@ import UIKit
         segmentedControl.addTarget(self, action: "segmentedControlChanged:", forControlEvents: .ValueChanged)
         self.view.addSubview(segmentedControl)
         
-        
         self.view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         
-        technology.append(["0","HackBCA Second Place","HackBCA Second Place\nWon for my app Smith\nThe Bergen County Academies\nNJ, March, 2015"])
-        technology.append(["0","NJ State Robotics Champions","NJ State Robotics Champions\nTeam #8405 Millburn Robotics\nFirst Tech Challenge\nMarch, 2015"])
-        technology.append(["0","Code Day NYC Best Application","Code Day NYC Best Application\nWon for my app ViewZik\nNew York City\nNY, February, 2015"])
         
-        education.append(["0","Code Day NYC Best Application","Code Day NYC Best Application\nWon for my app ViewZik\nNew York City\nNY, February, 2015"])
         
-        squash.append(["0","Code Day NYC Best Application","Code Day NYC Best Application\nWon for my app ViewZik\nNew York City\nNY, February, 2015"])
+        technology.append(["0","First Tech Challenge Robotics"," First Tech Challenge Robotics\n13th Place World Champtionship April 2015\n1st Place New Jersey \nApr. 2015"])
+        
+        technology.append(["0","Dream it Code it Win it","Dream it Code it Win it\nsnappr app\nNYC, NY, Apr. 2015"])
+        
+        
+        technology.append(["0","HackBCA, Second Place","HackBCA, Second Place\nSmith app\nThe Bergen County Academies\nNJ, Mar. 2015"])
+        
+        
+        technology.append(["0","NJ State Robotics, Champion","NJ State Robotics, Champion\nFirst Tech Challenge\nMar. 2015"])
+        
+        technology.append(["0","Code Day NYC, Best Application","Code Day NYC, Best Application\n ViewZik app\nNYC, NY, Feb. 2015"])
+        
+        
+        
+        education.append(["0","The Saint Anselm College Book Award","The Saint Anselm College Book Award\nMillburn High School, 2015"])
+        
+        education.append(["0","Essay contest, Winner","Essay contest, Winner\nMillburn High School, 2015"])
+        
+        
+        education.append(["0","USA Biology Olympiad, Semifinalist","USA Biology Olympiad, Semifinalist\n2014"])
+        
+        education.append(["0","USA Computing Olympiad, Silver division","USA Computing Olympiad, Silver\n2014"])
+        
+        education.append(["0","Princeton Engineering Olympiad, Second Place","Princeton Engineering Olympiad, Second Place\nPrinceton University, 2014"])
+        
+        
+        
+        squash.append(["0","US Squash National Ranking, 12","US Squash National Ranking, 12\nBoys under 17 division\nDec. 2014"])
+        
+        squash.append(["0","US Squash Scholar-Athlete Award","US Squash Scholar-Athlete Award\n2014, 2013"])
+        
+        squash.append(["0","Virginia Jr. Gold tournament, Winner","Virginia Jr. Gold tournament, Winner\nNov. 2014"])
+        
+        squash.append(["0","Groton Gold tournament, Finalist","Groton Gold tournament, Finalist\nNov. 2014"])
+        
+        squash.append(["0","Baird E Haney Jr. Gold Championship, Finalist","Baird E Haney Jr. Gold Championship, Finalist\nSep. 2014"])
+        
+        
+        squash.append(["0","US Squash National Ranking, 23","US Squash National Ranking, 23\nBoys under 15 division\nDec. 2012"])
         
         segmentedControlChanged(UISegmentedControl())
         

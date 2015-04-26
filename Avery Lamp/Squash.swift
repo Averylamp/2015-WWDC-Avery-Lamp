@@ -72,7 +72,7 @@ class Squash: UIViewController {
         var textView = UITextView(frame: CGRectMake(0, teamImage.frame.size.height + teamImage.frame.origin.y + 40, screenWidth, screenHeight - teamImage.frame.size.height - teamImage2.frame.size.height))
         textView.textAlignment = NSTextAlignment.Center
         textView.font = UIFont(name: "ArialMT", size: 22)
-        textView.text = "Squash is an indoor racquet sport which requires fitness, both aerobic and anaerobic, strategy and mental toughness.  It was recently rated as the number one healthiest sport to play by the Forbes magazine"
+        textView.text = "Squash is an indoor racquet sport which requires fitness, both aerobic and anaerobic, strategy and mental toughness.  It was recently rated as the number one healthiest sport to play by Forbes magazine."
         textView.editable = false
         self.view.addSubview(textView)
         

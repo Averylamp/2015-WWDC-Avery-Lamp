@@ -17,6 +17,8 @@ class SkillsScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
+        self.view?.showsFPS = false
+        self.view?.showsNodeCount = false
         let scale = UIScreen.mainScreen().scale
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         let screenWidth = screenSize.width * scale
