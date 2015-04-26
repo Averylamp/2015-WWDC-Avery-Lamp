@@ -78,7 +78,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.flippingIconIndex = 1;
+    self.flippingIconIndex = 0;
     [self addAndAnimateiPhonesToIndex:self.flippingIconIndex];
     
 }
@@ -275,9 +275,10 @@
         self.currentiPhone =temp;
     }
     
+    [self animateToCenterView:self.currentiPhone];
     [self animateToLeftView:self.leftiPhone];
     [self animateToRightView:self.rightiPhone];
-    [self animateToCenterView:self.currentiPhone];
+    
     
     
 }
@@ -285,7 +286,7 @@
 -(void)animateToLeftView:(UIView *)view{
     view.userInteractionEnabled = NO;
     CGRect frame = CGRectMake(-65, self.screenSize.height/2-130, 130, 130*532.0 /254.0);
-    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime-0.1 selector:nil];
+    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime selector:nil];
     
     
 }
@@ -301,7 +302,7 @@
     view.userInteractionEnabled = NO;
     [self.view bringSubviewToFront:view];
     CGRect frame = CGRectMake(15, self.screenSize.height -( (self.screenSize.width - 30) *532.0 /254.0)/2 , self.screenSize.width -30, (self.screenSize.width - 30) *532.0 /254.0);
-    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime-0.1 selector:@selector(animationComplete)];
+    [self rectLerpTapped:view withFrame:frame duration:self.swipeAnimationTime selector:@selector(animationComplete)];
     
     
 }
@@ -426,6 +427,19 @@
         skView.backgroundColor = [UIColor whiteColor];
         
         if ([clickedIcon.name isEqualToString:@"Skills"]) {
+            SkillsScene *scene = [SkillsScene unarchiveFromFile:@"MyScene"];
+            skView.showsFPS = NO;
+            skView.showsNodeCount = NO;
+            sceneVC.scene = scene;
+            scene.backgroundColor = [UIColor whiteColor];
+            sceneVC.view = skView;
+            [self  presentViewController:sceneVC animated:YES completion:^{
+                self.currentiPhoneVC.iconClicked= NO;
+                self.currentiPhoneVC.swipeLocked = NO;
+                [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            }];
+            return;
+        }else if([clickedIcon.name isEqualToString:@"Favorites"]){
             FavoritesScene *scene = [FavoritesScene unarchiveFromFile:@"MyScene"];
             skView.showsFPS = NO;
             skView.showsNodeCount = NO;
@@ -440,7 +454,6 @@
                 [self.view.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
             }];
             return;
-            
         }
 
     }
